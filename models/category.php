@@ -100,7 +100,7 @@ class Category extends CategoriesAppModel {
 				$this->data = array_merge($data, $result);
 				return true;
 			} else {
-				throw new OutOfBoundsException(__('Could not save the category, please check your inputs.', true));
+				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.', true));
 			}
 			return $return;
 		}
@@ -125,7 +125,7 @@ class Category extends CategoriesAppModel {
 			'conditions' => $conditions));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__('Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}
 		$this->set($category);
 
@@ -159,7 +159,7 @@ class Category extends CategoriesAppModel {
 				'Category.slug' => $slug))));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__('Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}
 
 		return $category;
@@ -182,7 +182,7 @@ class Category extends CategoriesAppModel {
 				)));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__('Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}
 
 		$this->data['category'] = $category;
@@ -200,7 +200,7 @@ class Category extends CategoriesAppModel {
 				}
 			}
 			$this->validate = $tmp;
-			throw new Exception(__('You need to confirm to delete this Category', true));
+			throw new Exception(__d('categories', 'You need to confirm to delete this Category', true));
 		}
 	}
 }
