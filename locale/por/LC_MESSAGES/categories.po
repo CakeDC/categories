@@ -1,0 +1,177 @@
+# LANGUAGE translation of the CakePHP Categories plugin
+#
+# Copyright 2010, Cake Development Corporation (http://cakedc.com)
+#
+# Licensed under The MIT License
+# Redistributions of files must retain the above copyright notice.
+#
+# @copyright Copyright 2010, Cake Development Corporation (http://cakedc.com)
+# @license MIT License (http://www.opensource.org/licenses/mit-license.php)
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CakePHP Categories Plugin\n"
+"POT-Creation-Date: 2010-09-15 14:33+0200\n"
+"PO-Revision-Date: 2010-09-23 15:39-0300\n"
+"Last-Translator: Renan Gonçalves <renan.saddam@gmail.com>\n"
+"Language-Team: CakeDC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=n>1;\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+
+#: /controllers/categories_controller.php:113
+msgid "The category has been saved"
+msgstr "A categoria foi salva"
+
+#: /controllers/categories_controller.php:139
+msgid "Category saved"
+msgstr "Categoria salva"
+
+#: /controllers/categories_controller.php:164
+msgid "Category deleted"
+msgstr "Categoria removida"
+
+#: /models/categorized.php:53
+msgid "Foreign key can not be empty"
+msgstr "Chave estrangeira não pode estar vazia"
+
+#: /models/categorized.php:55
+msgid "Category id can not be empty"
+msgstr "Categoria id não pode estar vazia"
+
+#: /models/categorized.php:57
+msgid "Model field can not be empty"
+msgstr "Model field não pode estar vazia"
+
+#: /models/category.php:84
+msgid "Please enter a category name"
+msgstr "Por favor entre o nome da categoria"
+
+#: /models/category.php:103
+msgid "Could not save the category, please check your inputs."
+msgstr "Não foi possível salvar a categoria, por favor verifique os dados."
+
+#: /models/category.php:128;162;185
+msgid "Invalid Category"
+msgstr "Categoria inválida"
+
+#: /models/category.php:203
+msgid "You need to confirm to delete this Category"
+msgstr "Você precisa confirmar a remoção desta Categoria"
+
+#: /views/categories/admin_add.ctp:14
+msgid "Add Category"
+msgstr "Adicionar Categoria"
+
+#: /views/categories/admin_add.ctp:21
+#: /views/categories/admin_edit.ctp:22
+msgid "Submit"
+msgstr "Enviar"
+
+#: /views/categories/admin_edit.ctp:14
+#: /views/categories/admin_view.ctp:43
+msgid "Edit Category"
+msgstr "Editar Categoria"
+
+#: /views/categories/admin_index.ctp:12
+#: /views/categories/admin_tree.ctp:12
+#: /views/categories/index.ctp:12
+msgid "Categories"
+msgstr "Categorias"
+
+#: /views/categories/admin_index.ctp:16
+#: /views/categories/index.ctp:16
+msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
+msgstr "Página %page% de %pages%, mostrando %current% resultados de um total de %count%, começando em %start%, terminando em %end%"
+
+#: /views/categories/admin_index.ctp:26
+#: /views/categories/index.ctp:26
+msgid "Actions"
+msgstr "Ações"
+
+#: /views/categories/admin_index.ctp:53
+#: /views/categories/admin_tree.ctp:50
+#: /views/categories/index.ctp:53
+msgid "View"
+msgstr "Visualizar"
+
+#: /views/categories/admin_index.ctp:54
+#: /views/categories/admin_tree.ctp:52
+#: /views/categories/index.ctp:54
+msgid "Edit"
+msgstr "Editar"
+
+#: /views/categories/admin_index.ctp:55
+#: /views/categories/admin_tree.ctp:53
+#: /views/categories/index.ctp:55
+msgid "Delete"
+msgstr "Remover"
+
+#: /views/categories/admin_index.ctp:55
+#: /views/categories/admin_view.ctp:44
+#: /views/categories/index.ctp:55
+msgid "Are you sure you want to delete # %s?"
+msgstr "Você tem certeza que deseja remover # %s?"
+
+#: /views/categories/admin_tree.ctp:35
+msgid "No categories were added yet. :add-a-new-one now!"
+msgstr "Nenhuma categoria adicionada ainda. :add-a-new-one agora!"
+
+#: /views/categories/admin_tree.ctp:36
+msgid "Add a new one"
+msgstr "Adicionar uma nova"
+
+#: /views/categories/admin_tree.ctp:43
+msgid "Add category"
+msgstr "Adicionar categoria"
+
+#: /views/categories/admin_tree.ctp:51
+msgid "Add a child"
+msgstr "Adicionar filho"
+
+#: /views/categories/admin_view.ctp:12
+#: /views/categories/view.ctp:12
+msgid "Category"
+msgstr "Categoria"
+
+#: /views/categories/admin_view.ctp:14
+#: /views/categories/view.ctp:14
+msgid "Parent Category"
+msgstr "Categoria Pai"
+
+#: /views/categories/admin_view.ctp:19
+#: /views/categories/view.ctp:19
+msgid "User"
+msgstr "Usuário"
+
+#: /views/categories/admin_view.ctp:24
+#: /views/categories/view.ctp:24
+msgid "Name"
+msgstr "Nome"
+
+#: /views/categories/admin_view.ctp:29
+#: /views/categories/view.ctp:29
+msgid "Description"
+msgstr "Descrição"
+
+#: /views/categories/admin_view.ctp:34
+#: /views/categories/view.ctp:34
+msgid "Created"
+msgstr "Criada"
+
+#: /views/categories/admin_view.ctp:44
+msgid "Delete Category"
+msgstr "Remover Categoria"
+
+#: /views/categories/admin_view.ctp:45
+#: /views/categories/view.ctp:43
+msgid "List Categories"
+msgstr "Listar Categorias"
+
+#: /views/categories/admin_view.ctp:46
+msgid "New Category"
+msgstr "Nova Categoria"
+
