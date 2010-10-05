@@ -1,0 +1,166 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CakePHP Categories Plugin\n"
+"POT-Creation-Date: 2010-09-15 14:33+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Evgeny Tomenko <yevgeny.tomenko@cakedc.com>\n"
+"Language-Team: CakeDC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: /controllers/categories_controller.php:113
+msgid "The category has been saved"
+msgstr "Категория сохранена"
+
+#: /controllers/categories_controller.php:139
+msgid "Category saved"
+msgstr "Категория сохранена"
+
+#: /controllers/categories_controller.php:164
+msgid "Category deleted"
+msgstr "Категория удалена"
+
+#: /models/categorized.php:53
+msgid "Foreign key can not be empty"
+msgstr "Внешний ключ не может быть пустым"
+
+#: /models/categorized.php:55
+msgid "Category id can not be empty"
+msgstr "Идентификатор категории не может быть пустым"
+
+#: /models/categorized.php:57
+msgid "Model field can not be empty"
+msgstr "Поле модели не может быть пустым"
+
+#: /models/category.php:84
+msgid "Please enter a category name"
+msgstr "Укажите имя категории"
+
+#: /models/category.php:103
+msgid "Could not save the category, please check your inputs."
+msgstr "Неудалось сохранить категорию. Проверьте введенные данные."
+
+#: /models/category.php:128;162;185
+msgid "Invalid Category"
+msgstr "Неверная категория"
+
+#: /models/category.php:203
+msgid "You need to confirm to delete this Category"
+msgstr "Необходимо подтвердить удаление категории"
+
+#: /views/categories/admin_add.ctp:14
+msgid "Add Category"
+msgstr "Добавить категорию"
+
+#: /views/categories/admin_add.ctp:21
+#: /views/categories/admin_edit.ctp:22
+msgid "Submit"
+msgstr "Сохранить"
+
+#: /views/categories/admin_edit.ctp:14
+#: /views/categories/admin_view.ctp:43
+msgid "Edit Category"
+msgstr "Редактировать категорию"
+
+#: /views/categories/admin_index.ctp:12
+#: /views/categories/admin_tree.ctp:12
+#: /views/categories/index.ctp:12
+msgid "Categories"
+msgstr "Категории"
+
+#: /views/categories/admin_index.ctp:16
+#: /views/categories/index.ctp:16
+msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
+msgstr "Страница %page% из %pages%, показано %current% записей из %count%, начиная с %start%,и заканчивая %end%"
+
+#: /views/categories/admin_index.ctp:26
+#: /views/categories/index.ctp:26
+msgid "Actions"
+msgstr "Действия"
+
+#: /views/categories/admin_index.ctp:53
+#: /views/categories/admin_tree.ctp:50
+#: /views/categories/index.ctp:53
+msgid "View"
+msgstr "Просмотреть"
+
+#: /views/categories/admin_index.ctp:54
+#: /views/categories/admin_tree.ctp:52
+#: /views/categories/index.ctp:54
+msgid "Edit"
+msgstr "Редактировать"
+
+#: /views/categories/admin_index.ctp:55
+#: /views/categories/admin_tree.ctp:53
+#: /views/categories/index.ctp:55
+msgid "Delete"
+msgstr "Удалить"
+
+#: /views/categories/admin_index.ctp:55
+#: /views/categories/admin_view.ctp:44
+#: /views/categories/index.ctp:55
+msgid "Are you sure you want to delete # %s?"
+msgstr "Выдействительно хотите удалить  %s?"
+
+#: /views/categories/admin_tree.ctp:35
+msgid "No categories were added yet. :add-a-new-one now!"
+msgstr "Пока нет ни одной категории. :add-a-new-one !"
+
+#: /views/categories/admin_tree.ctp:36
+msgid "Add a new one"
+msgstr "Добавить новую категорию"
+
+#: /views/categories/admin_tree.ctp:43
+msgid "Add category"
+msgstr "Добавить категорию"
+
+#: /views/categories/admin_tree.ctp:51
+msgid "Add a child"
+msgstr "Добавить подкатегорию"
+
+#: /views/categories/admin_view.ctp:12
+#: /views/categories/view.ctp:12
+msgid "Category"
+msgstr "Категория"
+
+#: /views/categories/admin_view.ctp:14
+#: /views/categories/view.ctp:14
+msgid "Parent Category"
+msgstr "Родительская категория"
+
+#: /views/categories/admin_view.ctp:19
+#: /views/categories/view.ctp:19
+msgid "User"
+msgstr "Пользователь"
+
+#: /views/categories/admin_view.ctp:24
+#: /views/categories/view.ctp:24
+msgid "Name"
+msgstr "Наименование"
+
+#: /views/categories/admin_view.ctp:29
+#: /views/categories/view.ctp:29
+msgid "Description"
+msgstr "Описание"
+
+#: /views/categories/admin_view.ctp:34
+#: /views/categories/view.ctp:34
+msgid "Created"
+msgstr "Дата создания"
+
+#: /views/categories/admin_view.ctp:44
+msgid "Delete Category"
+msgstr "Удалить категорию"
+
+#: /views/categories/admin_view.ctp:45
+#: /views/categories/view.ctp:43
+msgid "List Categories"
+msgstr "Список категорий"
+
+#: /views/categories/admin_view.ctp:46
+msgid "New Category"
+msgstr "Создать категорию"
+

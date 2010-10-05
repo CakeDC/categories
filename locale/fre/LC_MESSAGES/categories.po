@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CakePHP Categories Plugin\n"
+"POT-Creation-Date: 2010-09-15 14:33+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pierre MARTIN <contact@pierre-martin.fr>\n"
+"Language-Team: CakeDC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+#: /controllers/categories_controller.php:113
+msgid "The category has been saved"
+msgstr "La catégorie a été sauvegardée"
+
+#: /controllers/categories_controller.php:139
+msgid "Category saved"
+msgstr "Catégorie sauvegardée"
+
+#: /controllers/categories_controller.php:164
+msgid "Category deleted"
+msgstr "Catégorie supprimée"
+
+#: /models/categorized.php:53
+msgid "Foreign key can not be empty"
+msgstr "La Clé Étrangère ne peut pas être vide"
+
+#: /models/categorized.php:55
+msgid "Category id can not be empty"
+msgstr "L'id de Catégorie ne peut pas être vide"
+
+#: /models/categorized.php:57
+msgid "Model field can not be empty"
+msgstr "Le champ du Modèle ne peut pas être vide"
+
+#: /models/category.php:84
+msgid "Please enter a category name"
+msgstr "Veuillez entrer un nom de Catégorie"
+
+#: /models/category.php:103
+msgid "Could not save the category, please check your inputs."
+msgstr "Impossible de sauvegarder la catégorie, veuillez vérifier les données."
+
+#: /models/category.php:128;162;185
+msgid "Invalid Category"
+msgstr "Catégorie invalide"
+
+#: /models/category.php:203
+msgid "You need to confirm to delete this Category"
+msgstr "Vous devez confirmer pour supprimer cette Catégorie"
+
+#: /views/categories/admin_add.ctp:14
+msgid "Add Category"
+msgstr "Ajouter une Catégorie"
+
+#: /views/categories/admin_add.ctp:21
+#: /views/categories/admin_edit.ctp:22
+msgid "Submit"
+msgstr "Envoyer"
+
+#: /views/categories/admin_edit.ctp:14
+#: /views/categories/admin_view.ctp:43
+msgid "Edit Category"
+msgstr "Modifier la Catégorie"
+
+#: /views/categories/admin_index.ctp:12
+#: /views/categories/admin_tree.ctp:12
+#: /views/categories/index.ctp:12
+msgid "Categories"
+msgstr "Catégories"
+
+#: /views/categories/admin_index.ctp:16
+#: /views/categories/index.ctp:16
+msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
+msgstr "Page %page% de %pages%, affiche %current% enregistrements sur un total de %count%, débute à l'enregistrement %start%, se termine au %end%"
+
+#: /views/categories/admin_index.ctp:26
+#: /views/categories/index.ctp:26
+msgid "Actions"
+msgstr "Actions"
+
+#: /views/categories/admin_index.ctp:53
+#: /views/categories/admin_tree.ctp:50
+#: /views/categories/index.ctp:53
+msgid "View"
+msgstr "Voir"
+
+#: /views/categories/admin_index.ctp:54
+#: /views/categories/admin_tree.ctp:52
+#: /views/categories/index.ctp:54
+msgid "Edit"
+msgstr "Modifier"
+
+#: /views/categories/admin_index.ctp:55
+#: /views/categories/admin_tree.ctp:53
+#: /views/categories/index.ctp:55
+msgid "Delete"
+msgstr "Supprimer"
+
+#: /views/categories/admin_index.ctp:55
+#: /views/categories/admin_view.ctp:44
+#: /views/categories/index.ctp:55
+msgid "Are you sure you want to delete # %s?"
+msgstr "Êtes-vous sûr de vouloir supprimer # %s ?"
+
+#: /views/categories/admin_tree.ctp:35
+msgid "No categories were added yet. :add-a-new-one now!"
+msgstr "Aucune catégorie n'a été ajoutée pour le moment. :add-a-new-one maintenant !"
+
+#: /views/categories/admin_tree.ctp:36
+msgid "Add a new one"
+msgstr "En créer une nouvelle"
+
+#: /views/categories/admin_tree.ctp:43
+msgid "Add category"
+msgstr "Ajouter une catégorie"
+
+#: /views/categories/admin_tree.ctp:51
+msgid "Add a child"
+msgstr "Ajouter un fils"
+
+#: /views/categories/admin_view.ctp:12
+#: /views/categories/view.ctp:12
+msgid "Category"
+msgstr "Catégorie"
+
+#: /views/categories/admin_view.ctp:14
+#: /views/categories/view.ctp:14
+msgid "Parent Category"
+msgstr "Catégorie parente"
+
+#: /views/categories/admin_view.ctp:19
+#: /views/categories/view.ctp:19
+msgid "User"
+msgstr "Utilisateur"
+
+#: /views/categories/admin_view.ctp:24
+#: /views/categories/view.ctp:24
+msgid "Name"
+msgstr "Nom"
+
+#: /views/categories/admin_view.ctp:29
+#: /views/categories/view.ctp:29
+msgid "Description"
+msgstr "Description"
+
+#: /views/categories/admin_view.ctp:34
+#: /views/categories/view.ctp:34
+msgid "Created"
+msgstr "Créé"
+
+#: /views/categories/admin_view.ctp:44
+msgid "Delete Category"
+msgstr "Supprimer la Catégorie"
+
+#: /views/categories/admin_view.ctp:45
+#: /views/categories/view.ctp:43
+msgid "List Categories"
+msgstr "Lister les Catégories"
+
+#: /views/categories/admin_view.ctp:46
+msgid "New Category"
+msgstr "Nouvelle Catégorie"
+
