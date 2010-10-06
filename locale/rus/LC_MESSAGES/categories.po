@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
-"Plural-Forms: plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10< =4 && (n%100<10 or n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: /controllers/categories_controller.php:113
 msgid "The category has been saved"
@@ -103,11 +103,11 @@ msgstr "Удалить"
 #: /views/categories/admin_view.ctp:44
 #: /views/categories/index.ctp:55
 msgid "Are you sure you want to delete # %s?"
-msgstr "Выдействительно хотите удалить  %s?"
+msgstr "Вы действительно хотите удалить %s?"
 
 #: /views/categories/admin_tree.ctp:35
 msgid "No categories were added yet. :add-a-new-one now!"
-msgstr "Пока нет ни одной категории. :add-a-new-one !"
+msgstr "Пока нет ни одной категории. :add-a-new-one!"
 
 #: /views/categories/admin_tree.ctp:36
 msgid "Add a new one"
