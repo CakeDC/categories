@@ -117,6 +117,7 @@
 			$this->create($data);
 			$result = $this->save($data);
 			if ($result !== false) {
+				$this->clearCache();
 				$this->data = array_merge($data, $result);
 				return true;
 			} else {
@@ -129,7 +130,7 @@
 /**
  * Edits an existing Category.
  *
- * @param string $id, category id 
+ * @param string $id, category id
  * @param string $userId, user id
  * @param array $data, controller post data usually $this->data
  * @return mixed True on successfully save else post data as array
@@ -143,11 +144,11 @@
 		$category = $this->find('first', array(
 			'contain' => array('User', 'ParentCategory'),
 			'conditions' => $conditions));
-			
+
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}
-		
+
 		$category[$this->alias]['name_translation'] = $this->readTranslations($category[$this->alias]['id'], 'name');
 		$this->set($category);
 
@@ -162,6 +163,7 @@
 			}
 			$this->Behaviors->enable('Translate');
 			if ($result) {
+				$this->clearCache();
 				$this->data = $result;
 				return true;
 			} else {
@@ -187,8 +189,8 @@
 				$I18n->save($map[$locale]);
 			} else {
 				$data = array(
-					'model' => $this->alias, 
-					'foreign_key' => $id, 
+					'model' => $this->alias,
+					'foreign_key' => $id,
 					'field' => 'name',
 					'content' => $translation,
 					'locale' => $locale);
@@ -196,9 +198,9 @@
 				$I18n->save($data);
 			}
 		}
-		
+
 	}
-	
+
 	public function readTranslations($id, $field) {
 		$I18n = ClassRegistry::init('I18nModel');
 		$translations = $I18n->find('all', array('conditions' => array('model' => $this->alias, 'foreign_key' => $id, 'field' => 'name')));
@@ -207,7 +209,7 @@
 		}
 		return Set::combine($translations, '{n}.I18nModel.locale', '{n}.I18nModel.content');
 	}
-	
+
 /**
  * Returns the record of a Category.
  *
@@ -226,15 +228,15 @@
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}
 
-		
-		
+
+
 		return $category;
 	}
 
 /**
  * Validates the deletion
  *
- * @param string $id, category id 
+ * @param string $id, category id
  * @param string $userId, user id
  * @param array $data, controller post data usually $this->data
  * @return boolean True on success
@@ -269,5 +271,50 @@
 			throw new Exception(__d('categories', 'You need to confirm to delete this Category', true));
 		}
 	}
-	
+
+/**
+ * Get list of categories from cache based on actual locale
+ *
+ * @return array, categories in find('list') format
+ */
+	public function getCacheCategories() {
+		$locale = Configure::read('Config.language');
+		$categories = Cache::read('category_' . $locale);
+		if (empty($categories)) {
+			$categories = $this->find('all');
+			if (!empty($categories)) {
+				$categories = Set::combine($categories, '{n}.' . $this->alias . '.id', '{n}.' . $this->alias . '.name');
+			} else {
+				$categories = array();
+			}
+			Cache::write('category_' . $locale, $categories);
+		}
+		return $categories;
+	}
+
+
+/**
+ * Clear categories cache
+ *
+ */
+	public function clearCache() {
+		$locales = $this->getSupportedLanguages();
+		foreach ($locales as $locale) {
+			Cache::delete('category_' . $locale);
+		}
+	}
+
+/**
+ * Return list of languages admin interface and other methods are support
+ *
+ * @return array list of languages
+ */
+	public function getSupportedLanguages() {
+		$languages = Configure::read('Config.languages');
+		if (defined('DEFAULT_LANGUAGE')) {
+			$languages[] = DEFAULT_LANGUAGE;
+		}
+		return $languages;
+	}
+
 }

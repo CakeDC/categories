@@ -142,15 +142,10 @@ class I18nCategoriesController extends CategoriesAppController {
  */
 	public function admin_edit($id = null) {
 		try {
-			$actualLanguages = Configure::read('Config.languages');
-			if (defined('DEFAULT_LANGUAGE')) {
-				$actualLanguages[] = DEFAULT_LANGUAGE;
-			}
+			$this->Category->getSupportedLanguages();
 			App::import('Lib', 'Utils.Languages');
 			$Languages = new Languages();
 			$languages = $Languages->lists('locale');
-			// debug($actualLanguages);
-			// debug($languages);
 			$this->set(compact('languages', 'actualLanguages'));
 			$result = $this->Category->edit($id, null, $this->data);
 			if ($result === true) {

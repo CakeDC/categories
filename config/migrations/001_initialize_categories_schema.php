@@ -62,7 +62,8 @@ class Caa9bc72d1cc4476fbccp1e4beba7b4jk extends CakeMigration {
 					'modified' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
 					'indexes' => array(
 						'PRIMARY' => array('column' => 'id', 'unique' => 1),
-						'UNIQUE_CATEGORY_CONTENT' => array('column' => array('category_id', 'foreign_key', 'model'), 'unique' => 1))
+						'UNIQUE_CATEGORY_CONTENT' => array('column' => array('category_id', 'foreign_key', 'model'), 'unique' => 1)
+					)
 				)
 			),
 		),
