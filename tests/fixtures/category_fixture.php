@@ -37,15 +37,16 @@ class CategoryFixture extends CakeTestFixture {
  * @var array $fields
  */
 	public $fields = array(
-		'id' => array('type'=>'string', 'null' => false, 'length' => 36, 'key' => 'primary'),
+		'id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
 		'category_id' => array('type'=>'string', 'null' => true, 'default' => NULL, 'length' => 36),
 		'foreign_key' => array('type'=>'string', 'null' => true, 'default' => NULL, 'length' => 36),
-		'model' => array('type' => 'string', 'null' => false),
-		'user_id' => array('type'=>'string', 'null' => false, 'length' => 36, 'key' => 'index'),
-		'lft' => array('type'=>'integer', 'null' => false, 'length' => 10),
-		'rght' => array('type'=>'integer', 'null' => false, 'length' => 10),
-		'name' => array('type'=>'string', 'null' => false),
-		'slug' => array('type' => 'string', 'null' => false),
+		'model' => array('type'=>'string', 'null' => true, 'default' => NULL),
+		'record_count' => array('type'=>'integer', 'null' => true, 'default' => 0),
+		'user_id' => array('type'=>'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'index'),
+		'lft' => array('type'=>'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'rght' => array('type'=>'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'name' => array('type'=>'string', 'null' => false, 'default' => NULL),
+		'slug' => array('type'=>'string', 'null' => false, 'default' => NULL),
 		'description' => array('type'=>'text', 'null' => true, 'default' => NULL),
 		'created' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type'=>'datetime', 'null' => true, 'default' => NULL),
