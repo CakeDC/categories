@@ -93,8 +93,8 @@ class Category extends CategoriesAppModel {
  */
 	public function add($userId = null, $data = null) {
 		if (!empty($data)) {
-			$data['Category']['user_id'] = $userId;
-			$this->create();
+			$data[$this->alias]['user_id'] = $userId;
+			$this->create($data);
 			$result = $this->save($data);
 			if ($result !== false) {
 				$this->data = array_merge($data, $result);
@@ -102,7 +102,7 @@ class Category extends CategoriesAppModel {
 			} else {
 				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.', true));
 			}
-			return $return;
+			return $result;
 		}
 	}
 
@@ -187,7 +187,7 @@ class Category extends CategoriesAppModel {
 
 		$this->data['category'] = $category;
 		if (!empty($data)) {
-			$data['Category']['id'] = $id;
+			$data[$this->alias]['id'] = $id;
 			$tmp = $this->validate;
 			$this->validate = array(
 				'id' => array('rule' => 'notEmpty'),
@@ -195,7 +195,7 @@ class Category extends CategoriesAppModel {
 
 			$this->set($data);
 			if ($this->validates()) {
-				if ($this->delete($data['Category']['id'])) {
+				if ($this->delete($data[$this->alias]['id'])) {
 					return true;
 				}
 			}

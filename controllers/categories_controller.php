@@ -84,7 +84,7 @@ class CategoriesController extends CategoriesAppController {
 	public function admin_tree() {
 		$this->Category->recursive = 0;
 		$this->helpers[] = 'Utils.Tree';
-		$this->set('categories', $this->Category->find('all', array('order' => 'Category.lft')));
+		$this->set('categories', $this->Category->find('all', array('order' => $this->Category->alias . '.lft')));
 	}
 
 /**
@@ -120,7 +120,7 @@ class CategoriesController extends CategoriesAppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data) && !empty($category_id)) {
-			$this->data['Category']['category_id'] = $category_id;
+			$this->data[$this->Category->alias]['category_id'] = $category_id;
 		}
 		$categories = $this->Category->find('list');
 		$users = $this->Category->User->find('list');
@@ -137,7 +137,7 @@ class CategoriesController extends CategoriesAppController {
 			$result = $this->Category->edit($id, null, $this->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'Category saved', true));
-				$this->redirect(array('action' => 'view', $this->Category->data['Category']['slug']));
+				$this->redirect(array('action' => 'view', $this->Category->data[$this->Category->alias]['slug']));
 				
 			} else {
 				$this->data = $result;
