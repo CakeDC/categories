@@ -142,7 +142,7 @@ class I18nCategoriesController extends CategoriesAppController {
  */
 	public function admin_edit($id = null) {
 		try {
-			$this->Category->getSupportedLanguages();
+			$actualLanguages = $this->Category->getSupportedLanguages();
 			App::import('Lib', 'Utils.Languages');
 			$Languages = new Languages();
 			$languages = $Languages->lists('locale');

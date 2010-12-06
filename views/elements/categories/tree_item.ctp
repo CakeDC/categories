@@ -21,6 +21,6 @@
  * @param array $lastChild
  * @param boolean $hasVisibleChildren
  */
-$link = $this->Html->link($data[$modelName]['name'], array('controller' => 'categories', 'action' => 'edit', $data[$modelName]['id']));
+$link = $this->Html->link($data[$modelName]['name'], array('action' => 'edit', $data[$modelName]['id']));
 echo '<span id="' . $data[$modelName]['id'] . '">' . $link . '</span>';
 ?>
