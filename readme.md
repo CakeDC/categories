@@ -8,7 +8,7 @@ Any item of data can be added to one or more categories. For this, you can use a
 
 ### Installation ##
 
-1. Place the problems folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
+1. Place the `categories` folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
 
 2. Create database tables using either the schema shell or the [CakeDC Migrations plugin](http://github.com/CakeDC/migrations):
 	`cake schema create -plugin categories -name categories`
