@@ -34,6 +34,21 @@ class CategoriesController extends CategoriesAppController {
 	public $helpers = array('Html', 'Form');
 
 /**
+ * Components
+ *
+ * @var array
+ */
+	public $components = array('Auth');
+
+
+/**
+ * Components
+ *
+ * @var array
+ */
+	public $users = array('Categories.Category');
+
+/**
  * beforeFilter callback
  *
  * @return void

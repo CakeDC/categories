@@ -45,7 +45,7 @@ class I18nCategoryTestCase extends AppTestCase {
 		Configure::write('App.UserClass', null); 
 		Configure::write('Config.language', 'eng'); 
 		parent::startTest($method);
-		$this->I18nCategory = AppMock::getTestModel('Categories.I18nCategory');
+		$this->I18nCategory = ClassRegistry::init('Categories.I18nCategory');
 		$fixture = new CategoryFixture();
 		$this->record = array('I18nCategory' => $fixture->records[0]);
 	}
@@ -81,7 +81,7 @@ class I18nCategoryTestCase extends AppTestCase {
 			$result = $this->I18nCategory->add($userId, $data);
 			$this->fail('No exception');
 		} catch (OutOfBoundsException $e) {
-			$this->pass('Correct exception thrown');
+			//$this->pass('Correct exception thrown');
 		}
 		
 	}
@@ -110,7 +110,7 @@ class I18nCategoryTestCase extends AppTestCase {
 		$data = $this->record;
 
 		$result = $this->I18nCategory->edit('category-1', $userId, $data);
-		$this->assertTrue($result);
+		$this->assertTrue(!empty($result));
 
 		$result = $this->I18nCategory->read(null, 'category-1');
 
@@ -118,7 +118,7 @@ class I18nCategoryTestCase extends AppTestCase {
 			$this->I18nCategory->edit('wrong_id', $userId, $data);
 			$this->fail('No exception');
 		} catch (OutOfBoundsException $e) {
-			$this->pass('Correct exception thrown');
+			//$this->pass('Correct exception thrown');
 		}
 	}
 
@@ -132,7 +132,7 @@ class I18nCategoryTestCase extends AppTestCase {
 		$data['I18nCategory']['name_translation'] = $translations;
 		
 		$result = $this->I18nCategory->edit('category-1', $userId, $data);
-		$this->assertTrue($result);
+		$this->assertTrue(!empty($result));
 
 		$category = $this->I18nCategory->edit('category-1', $userId, null);
 		$this->assertEqual($category['I18nCategory']['name_translation'], $translations);
@@ -152,7 +152,7 @@ class I18nCategoryTestCase extends AppTestCase {
 			$result = $this->I18nCategory->view('wrong_id');
 			$this->fail('No exception on wrong id');
 		} catch (OutOfBoundsException $e) {
-			$this->pass('Correct exception thrown');
+			//$this->pass('Correct exception thrown');
 		}
 	}
 

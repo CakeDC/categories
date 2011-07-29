@@ -41,10 +41,11 @@ class CategoryTestCase extends AppTestCase {
  * @param string $method
  * @return void
  */
-	public function startTest($method) {
+	public function setUp() {
 		Configure::write('App.UserClass', null); 
-		parent::startTest($method);
-		$this->Category = AppMock::getTestModel('Categories.Category');
+		parent::setUp();
+		//$this->Category = $this->getMock('Categories.Category');
+		$this->Category = ClassRegistry::init('Categories.Category');
 		$fixture = new CategoryFixture();
 		$this->record = array('Category' => $fixture->records[0]);
 	}
@@ -55,8 +56,8 @@ class CategoryTestCase extends AppTestCase {
  * @param string $method
  * @return void
  */
-	public function endTest($method) {
-		parent::endTest($method);
+	public function tearDown() {
+		//parent::endTest($method);
 		unset($this->Category);
 		ClassRegistry::flush();
 	}
@@ -80,7 +81,7 @@ class CategoryTestCase extends AppTestCase {
 			$result = $this->Category->add($userId, $data);
 			$this->fail('No exception');
 		} catch (OutOfBoundsException $e) {
-			$this->pass('Correct exception thrown');
+			//$this->pass('Correct exception thrown');
 		}
 		
 	}
@@ -107,7 +108,7 @@ class CategoryTestCase extends AppTestCase {
 		$data = $this->record;
 
 		$result = $this->Category->edit('category-1', $userId, $data);
-		$this->assertTrue($result);
+		$this->assertTrue(!empty($result));
 
 		$result = $this->Category->read(null, 'category-1');
 
@@ -118,7 +119,7 @@ class CategoryTestCase extends AppTestCase {
 			$this->Category->edit('wrong_id', $userId, $data);
 			$this->fail('No exception');
 		} catch (OutOfBoundsException $e) {
-			$this->pass('Correct exception thrown');
+			//$this->pass('Correct exception thrown');
 		}
 	}
 
@@ -136,7 +137,7 @@ class CategoryTestCase extends AppTestCase {
 			$result = $this->Category->view('wrong_id');
 			$this->fail('No exception on wrong id');
 		} catch (OutOfBoundsException $e) {
-			$this->pass('Correct exception thrown');
+			//$this->pass('Correct exception thrown');
 		}
 	}
 
