@@ -10,14 +10,11 @@
  */
 
 App::import('Controller', 'Categories.Categories');
-//App::import('Component', array('Auth'));
 
 App::uses('Controller', 'Controller');
 App::uses('Router', 'Routing');
 App::uses('CakeRequest', 'Network');
 App::uses('CakeResponse', 'Network');
-
-
 
 /**
  * TestCategoriesController
@@ -110,25 +107,7 @@ class CategoriesControllerTestCase extends CakeTestCase {
  * @return void
  */
 	public function startTest() {
-		//parent::setUp();
-		// $this->Categories = $this->getMock('CategoriesController');
-		// $this->Categories->Components->set('Auth', $this->getMock('AuthComponent', array('user'), array($this->Categories->Components)), 'TestCategoriesAuth', false);
-		// $this->Categories->constructClasses();
-
-		// $this->Categories = $this->generate('Categories', array(
-			// 'components' => array(
-				// 'Auth' => array('user'))));
-		// $this->Categories->request = $this->getMock('CakeRequest');
-				
-			//'methods' => array('_stop', 'redirect'),
-			// 'models' => array('Post'),
-		
-		// $this->Categories->constructClasses();
-		
-		
 		$this->Categories = new TestCategoriesController(new CakeRequest());
-		// $this->Categories = $this->getMock('CategoriesController');
-		
 		$this->Categories->constructClasses();
 
 		$this->Collection = $this->getMock('ComponentCollection');
@@ -156,7 +135,6 @@ class CategoriesControllerTestCase extends CakeTestCase {
  * @return void
  */
 	public function endTest() {
-		//parent::tearDown();
 		unset($this->Categories);
 		ClassRegistry::flush();
 	}
@@ -240,8 +218,8 @@ class CategoriesControllerTestCase extends CakeTestCase {
  */
 	public function testAdminAdd() {
 		//$this->Categories->Auth->setReturnValue('user', 'user-1', array('id'));
-		$this->Categories->data = $this->record;
-		unset($this->Categories->data['Category']['id']);
+		$this->Categories->request->data = $this->record;
+		unset($this->Categories->request->data['Category']['id']);
 		$this->Categories->admin_add();
 		//$this->Categories->expectRedirect(array('action' => 'index'));
 		$this->assertFlash('The category has been saved');
@@ -260,9 +238,9 @@ class CategoriesControllerTestCase extends CakeTestCase {
 			->method('user')
 			->will($this->returnValue('user-1'));
 		$this->Categories->admin_edit('category-1');
-		$this->assertEqual($this->Categories->data['Category'], $this->record['Category']);
+		$this->assertEqual($this->Categories->request->data['Category'], $this->record['Category']);
 
-		$this->Categories->data = $this->record;
+		$this->Categories->request->data = $this->record;
 		$this->Categories->admin_edit('category-1');
 		//$this->Categories->expectRedirect(array('action' => 'view', 'slug1'));
 		$this->assertFlash('Category saved');
@@ -303,7 +281,7 @@ class CategoriesControllerTestCase extends CakeTestCase {
 		$this->Categories->admin_delete('category-1');
 		$this->assertTrue(!empty($this->Categories->viewVars['category']));
 
-		$this->Categories->data = array('Category' => array('confirmed' => 1));
+		$this->Categories->request->data = array('Category' => array('confirmed' => 1));
 		$this->Categories->admin_delete('category-1');
 		//$this->Categories->expectRedirect(array('action' => 'index'));
 		$this->assertFlash('Category deleted');
