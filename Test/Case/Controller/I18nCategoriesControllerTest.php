@@ -11,8 +11,12 @@
 
 App::import('Controller', 'Categories.I18nCategories');
 App::import('Component', array('Auth'));
-Mock::generate('AuthComponent', 'CategoriesControllerTestAuthComponent');
-App::import('Lib', 'Categories.AppTestCase');
+//Mock::generate('AuthComponent', 'CategoriesControllerTestAuthComponent');
+
+App::uses('Controller', 'Controller');
+App::uses('Router', 'Routing');
+App::uses('CakeRequest', 'Network');
+App::uses('CakeResponse', 'Network');
 
 /**
  * Categories controller test cases
@@ -30,12 +34,16 @@ class CategoriesControllerTestCase extends AppTestCase {
 	public $plugin = 'categories';
 
 /**
- * Test to run for the test case (e.g array('testFind', 'testView'))
- * If this attribute is not empty only the tests from the list will be executed
+ * Fixtures
  *
  * @var array
  */
-	protected $_testsToRun = array();
+	public $fixtures = array(
+		'plugin.categories.article',
+		'plugin.categories.categorized',
+		'plugin.categories.category',
+		'plugin.categories.translate',
+		'plugin.categories.user');
 
 /**
  * Start Test callback

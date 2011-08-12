@@ -8,17 +8,14 @@
  * @copyright Copyright 2010, Cake Development Corporation (http://cakedc.com)
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-App::import('Model', 'Categories.I18nCategory');
-App::import('Lib', 'Categories.AppTestCase');
-
+App::uses('Model', 'Model');
 /**
  * Category model test cases
  *
  * @package 	categories
  * @subpackage	categories.tests.cases.models
  */
-class I18nCategoryTestCase extends AppTestCase {
+class I18nCategoryTestCase extends CakeTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
@@ -28,12 +25,16 @@ class I18nCategoryTestCase extends AppTestCase {
 	public $plugin = 'categories';
 
 /**
- * Test to run for the test case (e.g array('testFind', 'testView'))
- * If this attribute is not empty only the tests from the list will be executed
+ * Fixtures
  *
  * @var array
  */
-	protected $_testsToRun = array();
+	public $fixtures = array(
+		'plugin.categories.article',
+		'plugin.categories.categorized',
+		'plugin.categories.category',
+		'plugin.categories.translate',
+		'plugin.categories.user');
 
 /**
  * Start Test callback
@@ -43,7 +44,8 @@ class I18nCategoryTestCase extends AppTestCase {
  */
 	public function startTest($method) {
 		Configure::write('App.UserClass', null); 
-		Configure::write('Config.language', 'eng'); 
+		Configure::write('Config.language', 'eng');
+		Configure::write('Config.languages', array('eng', 'deu', 'rus'));
 		parent::startTest($method);
 		$this->I18nCategory = ClassRegistry::init('Categories.I18nCategory');
 		$fixture = new CategoryFixture();
@@ -130,7 +132,7 @@ class I18nCategoryTestCase extends AppTestCase {
 		Configure::write('Config.languages', array('eng', 'fre'));
 		$data = $this->record;
 		$data['I18nCategory']['name_translation'] = $translations;
-		
+
 		$result = $this->I18nCategory->edit('category-1', $userId, $data);
 		$this->assertTrue(!empty($result));
 

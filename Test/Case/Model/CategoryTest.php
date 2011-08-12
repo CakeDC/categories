@@ -9,8 +9,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-App::import('Model', 'Categories.Category');
-App::import('Lib', 'Categories.AppTestCase');
+App::uses('Model', 'Model');
 
 /**
  * Category model test cases
@@ -18,7 +17,7 @@ App::import('Lib', 'Categories.AppTestCase');
  * @package 	categories
  * @subpackage	categories.tests.cases.models
  */
-class CategoryTestCase extends AppTestCase {
+class CategoryTestCase extends CakeTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
@@ -28,12 +27,16 @@ class CategoryTestCase extends AppTestCase {
 	public $plugin = 'categories';
 
 /**
- * Test to run for the test case (e.g array('testFind', 'testView'))
- * If this attribute is not empty only the tests from the list will be executed
+ * Fixtures
  *
  * @var array
  */
-	protected $_testsToRun = array();
+	public $fixtures = array(
+		'plugin.categories.article',
+		'plugin.categories.categorized',
+		'plugin.categories.category',
+		'plugin.categories.translate',
+		'plugin.categories.user');
 
 /**
  * Start Test callback

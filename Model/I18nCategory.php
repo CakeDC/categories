@@ -15,8 +15,6 @@
  * @package categories
  * @subpackage categories.models
  */
-// App::import('Model', 'Categories.Category');
-// class I18nCategory extends Category {
  class I18nCategory extends CategoriesAppModel {
 
 /**
@@ -49,22 +47,19 @@
 		'Tree' => array('parent' => 'category_id'),
 		'Translate' => array('name'),
 		'Utils.Sluggable' => array(
-			'label' => 'name')
-	);
+			'label' => 'name'));
 
 /**
  * belongsTo associations
  *
  * @var array $belongsTo
  */
-
 	public $belongsTo = array(
 		'ParentCategory' => array('className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '')
-			);
+			'order' => ''));
 
 /**
  * hasMany associations
@@ -201,6 +196,13 @@
 
 	}
 
+/**
+ * Read translations
+ *
+ * @param string
+ * @param string
+ * @return array
+ */
 	public function readTranslations($id, $field) {
 		$I18n = ClassRegistry::init('I18nModel');
 		$translations = $I18n->find('all', array('conditions' => array('model' => $this->alias, 'foreign_key' => $id, 'field' => 'name')));
@@ -245,9 +247,8 @@
 	public function validateAndDelete($id = null, $userId = null, $data = array()) {
 		$category = $this->find('first', array(
 			'conditions' => array(
-				"{$this->alias}.{$this->primaryKey}" => $id,
-				"{$this->alias}.user_id" => $userId
-				)));
+				$this->alias . '.' . $this->primaryKey => $id,
+				$this->alias . '.user_id' => $userId)));
 
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));

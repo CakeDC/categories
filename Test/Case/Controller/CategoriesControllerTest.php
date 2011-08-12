@@ -10,17 +10,19 @@
  */
 
 App::import('Controller', 'Categories.Categories');
-App::import('Component', array('Auth'));
-//Mock::generate('AuthComponent', 'CategoriesControllerTestAuthComponent');
-App::import('Lib', 'Categories.AppTestCase');
+//App::import('Component', array('Auth'));
 
+App::uses('Controller', 'Controller');
+App::uses('Router', 'Routing');
+App::uses('CakeRequest', 'Network');
+App::uses('CakeResponse', 'Network');
 /**
  * Categories controller test cases
  *
  * @package 	categories
  * @subpackage	categories.tests.cases.controlles
  */
-class CategoriesControllerTestCase extends AppTestCase {
+class CategoriesControllerTestCase extends CakeTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
@@ -30,12 +32,16 @@ class CategoriesControllerTestCase extends AppTestCase {
 	public $plugin = 'categories';
 
 /**
- * Test to run for the test case (e.g array('testFind', 'testView'))
- * If this attribute is not empty only the tests from the list will be executed
+ * Fixtures
  *
  * @var array
  */
-//	protected $_testsToRun = array('testView');
+	public $fixtures = array(
+		'plugin.categories.article',
+		'plugin.categories.categorized',
+		'plugin.categories.category',
+		'plugin.categories.translate',
+		'plugin.categories.user');
 
 /**
  * Start Test callback
@@ -48,8 +54,7 @@ class CategoriesControllerTestCase extends AppTestCase {
 		$this->Categories = $this->getMock('CategoriesController');
 		$this->Categories->Components->set('Auth', $this->getMock('AuthComponent', array('user'), array($this->Categories->Components)), 'TestCategoriesAuth', false);
 		$this->Categories->constructClasses();
-		
-		
+
 		$this->Categories = $this->generate('Categories', array(
 			'components' => array(
 				'Auth' => array('user'))));
