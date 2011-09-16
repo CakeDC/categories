@@ -23,17 +23,17 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __d('categories', 'Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $category['Category']['name']; ?>
+			<?php echo $category[$modelName]['name']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __d('categories', 'Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $category['Category']['description']; ?>
+			<?php echo $category[$modelName]['description']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __d('categories', 'Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $category['Category']['created']; ?>
+			<?php echo $category[$modelName]['created']; ?>
 			&nbsp;
 		</dd>
 	</dl>

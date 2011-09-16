@@ -9,7 +9,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<?php echo $this->Form->create('Category');?>
+<?php echo $this->Form->create($modelName);?>
 	<fieldset>
  		<legend><?php echo __d('categories', 'Add Category');?></legend>
 	<?php

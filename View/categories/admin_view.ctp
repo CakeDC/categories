@@ -23,25 +23,25 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __d('categories', 'Name'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $category['Category']['name']; ?>
+			<?php echo $category[$modelName]['name']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __d('categories', 'Description'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $category['Category']['description']; ?>
+			<?php echo $category[$modelName]['description']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __d('categories', 'Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $category['Category']['created']; ?>
+			<?php echo $category[$modelName]['created']; ?>
 			&nbsp;
 		</dd>
 	</dl>
 </div>
 <div class="actions">
 	<ul>
-		<li><?php echo $this->Html->link(__d('categories', 'Edit Category'), array('action'=>'edit', $category['Category']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__d('categories', 'Delete Category'), array('action'=>'delete', $category['Category']['id']), null, sprintf(__d('categories', 'Are you sure you want to delete # %s?'), $category['Category']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__d('categories', 'Edit Category'), array('action'=>'edit', $category[$modelName]['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__d('categories', 'Delete Category'), array('action'=>'delete', $category[$modelName]['id']), null, sprintf(__d('categories', 'Are you sure you want to delete # %s?'), $category[$modelName]['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__d('categories', 'List Categories'), array('action'=>'index')); ?> </li>
 		<li><?php echo $this->Html->link(__d('categories', 'New Category'), array('action'=>'add')); ?> </li>
 	</ul>
