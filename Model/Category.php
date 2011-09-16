@@ -156,8 +156,8 @@ class Category extends CategoriesAppModel {
 			'contain' => array('User', 'ParentCategory'),
 			'conditions' => array(
 				'or' => array(
-				'Category.id' => $slug,
-				'Category.slug' => $slug))));
+				$this->alias . '.id' => $slug,
+				$this->alias . '.slug' => $slug))));
 
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
