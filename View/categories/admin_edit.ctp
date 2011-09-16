@@ -11,7 +11,7 @@
 ?>
 <?php echo $this->Form->create('Category');?>
 	<fieldset>
- 		<legend><?php __d('categories', 'Edit Category');?></legend>
+ 		<legend><?php echo __d('categories', 'Edit Category');?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('category_id', array('empty' => true));
@@ -19,4 +19,4 @@
 		echo $this->Form->input('description');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__d('categories', 'Submit', true));?>
+<?php echo $this->Form->end(__d('categories', 'Submit'));?>

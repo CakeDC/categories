@@ -9,11 +9,11 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<h2><?php __d('categories', 'Categories');?></h2>
+<h2><?php echo __d('categories', 'Categories');?></h2>
 <p>
 <?php
 echo $this->Paginator->counter(array(
-'format' => __d('categories', 'Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
+'format' => __d('categories', 'Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%')
 ));
 ?></p>
 <table cellpadding="0" cellspacing="0">
@@ -50,9 +50,9 @@ foreach ($categories as $category):
 			<?php echo $category['Category']['created']; ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__d('categories', 'View', true), array('action'=>'view', $category['Category']['id'])); ?>
-			<?php echo $this->Html->link(__d('categories', 'Edit', true), array('action'=>'edit', $category['Category']['id'])); ?>
-			<?php echo $this->Html->link(__d('categories', 'Delete', true), array('action'=>'delete', $category['Category']['id']), null, sprintf(__d('categories', 'Are you sure you want to delete # %s?', true), $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__d('categories', 'View'), array('action'=>'view', $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__d('categories', 'Edit'), array('action'=>'edit', $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__d('categories', 'Delete'), array('action'=>'delete', $category['Category']['id']), null, sprintf(__d('categories', 'Are you sure you want to delete # %s?'), $category['Category']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
