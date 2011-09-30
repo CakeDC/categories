@@ -8,7 +8,7 @@ Any item of data can be added to one or more categories. For this, you can use a
 
 ### Installation ##
 
-1. Place the problems folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
+1. Place the `categories` folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
 
 2. Create database tables using either the schema shell or the [CakeDC Migrations plugin](http://github.com/CakeDC/migrations):
 	`cake schema create -plugin categories -name categories`
@@ -63,6 +63,14 @@ For this second case you need to provide a model name for each time you categori
 		}
 	}
 
+### Internationalized categories introduced
+
+	Implemented I18nCategory model that togather with tranlation behavior and i18n plugin allow to implement 
+multilanguage categories support.
+
+	For set of tranlated languages in admin interface used language settings from i18n plugin:	
+constant DEFAULT_LANGUAGE and configure storage parameter 'Config.languages'.	
+	
 ### The administrative section ###
 
 This plugin provides a very simple administrative section where you can list, create, edit and delete categories for your application. To access this section make sure you have the "admin" routing prefix enable as described in the installation instructions, also this plugin makes use of the Auth Component, to restrict access to this actions.

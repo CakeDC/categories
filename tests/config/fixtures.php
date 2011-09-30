@@ -5,4 +5,5 @@
 		'plugin.categories.category',
 		'plugin.categories.categorized',
 		'plugin.categories.user',
+		'plugin.categories.translate',
 	);

@@ -1,166 +1,175 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CakePHP Categories Plugin\n"
-"POT-Creation-Date: 2010-09-15 14:33+0200\n"
+"Project-Id-Version: Categories CakePHP plugin\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Evgeny Tomenko <yevgeny.tomenko@cakedc.com>\n"
-"Language-Team: CakeDC\n"
+"Last-Translator: José Lorenzo Rodríguez <jose.lorenzo@cakedc.com>\n"
+"Language-Team: CakeDC <contact@cakedc.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Russian\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Spanish\n"
 
+# LANGUAGE translation of the CakePHP Categories plugin
+#
+# Copyright 2010, Cake Development Corporation (http://cakedc.com)
+#
+# Licensed under The MIT License
+# Redistributions of files must retain the above copyright notice.
+#
+# @copyright Copyright 2010, Cake Development Corporation (http://cakedc.com)
+# @license MIT License (http://www.opensource.org/licenses/mit-license.php)
+#
 #: /controllers/categories_controller.php:113
 msgid "The category has been saved"
-msgstr "Категория сохранена"
+msgstr "La categoría ha sido guardada"
 
 #: /controllers/categories_controller.php:139
 msgid "Category saved"
-msgstr "Категория сохранена"
+msgstr "Categoría guardada"
 
 #: /controllers/categories_controller.php:164
 msgid "Category deleted"
-msgstr "Категория удалена"
+msgstr "Categoría eliminada"
 
 #: /models/categorized.php:53
 msgid "Foreign key can not be empty"
-msgstr "Внешний ключ не может быть пустым"
+msgstr "Clave foránea no puede dejarse vacía"
 
 #: /models/categorized.php:55
 msgid "Category id can not be empty"
-msgstr "Идентификатор категории не может быть пустым"
+msgstr "Identificador de Categoría no puede ser vacío"
 
 #: /models/categorized.php:57
 msgid "Model field can not be empty"
-msgstr "Поле модели не может быть пустым"
+msgstr "Campo de modelo no puede ser vacío"
 
 #: /models/category.php:84
 msgid "Please enter a category name"
-msgstr "Укажите имя категории"
+msgstr "Por favor ingresa un nombre de categoría"
 
 #: /models/category.php:103
 msgid "Could not save the category, please check your inputs."
-msgstr "Неудалось сохранить категорию. Проверьте введенные данные."
+msgstr "No se pudo guardar la categoría, por favor verifica la información"
 
 #: /models/category.php:128;162;185
 msgid "Invalid Category"
-msgstr "Неверная категория"
+msgstr "Categoría no válida"
 
 #: /models/category.php:203
 msgid "You need to confirm to delete this Category"
-msgstr "Необходимо подтвердить удаление категории"
+msgstr "Necesitas confirmar para eliminar esta categoría"
 
 #: /views/categories/admin_add.ctp:14
 msgid "Add Category"
-msgstr "Добавить категорию"
+msgstr "Agregar Categoría"
 
 #: /views/categories/admin_add.ctp:21
 #: /views/categories/admin_edit.ctp:22
 msgid "Submit"
-msgstr "Сохранить"
+msgstr "Enviar"
 
 #: /views/categories/admin_edit.ctp:14
 #: /views/categories/admin_view.ctp:43
 msgid "Edit Category"
-msgstr "Редактировать категорию"
+msgstr "Editar Categoría"
 
 #: /views/categories/admin_index.ctp:12
 #: /views/categories/admin_tree.ctp:12
 #: /views/categories/index.ctp:12
 msgid "Categories"
-msgstr "Категории"
+msgstr "Categorías"
 
 #: /views/categories/admin_index.ctp:16
 #: /views/categories/index.ctp:16
 msgid "Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%"
-msgstr "Страница %page% из %pages%, показано %current% записей из %count%, начиная с %start%,и заканчивая %end%"
+msgstr "Página %page% de %pages%, mostrando %current% registros de %count% en total, empezando en %start% y terminando en %end%"
 
 #: /views/categories/admin_index.ctp:26
 #: /views/categories/index.ctp:26
 msgid "Actions"
-msgstr "Действия"
+msgstr "Acciones"
 
 #: /views/categories/admin_index.ctp:53
 #: /views/categories/admin_tree.ctp:50
 #: /views/categories/index.ctp:53
 msgid "View"
-msgstr "Просмотреть"
+msgstr "Ver"
 
 #: /views/categories/admin_index.ctp:54
 #: /views/categories/admin_tree.ctp:52
 #: /views/categories/index.ctp:54
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Editar"
 
 #: /views/categories/admin_index.ctp:55
 #: /views/categories/admin_tree.ctp:53
 #: /views/categories/index.ctp:55
 msgid "Delete"
-msgstr "Удалить"
+msgstr "Eliminar"
 
 #: /views/categories/admin_index.ctp:55
 #: /views/categories/admin_view.ctp:44
 #: /views/categories/index.ctp:55
 msgid "Are you sure you want to delete # %s?"
-msgstr "Вы действительно хотите удалить %s?"
+msgstr "¿Estás seguro que quieres eliminar %s?"
 
 #: /views/categories/admin_tree.ctp:35
 msgid "No categories were added yet. :add-a-new-one now!"
-msgstr "Пока нет ни одной категории. :add-a-new-one!"
+msgstr "Ninguna categoría fue agregada aún. ¡:add-a-new-one ahora!"
 
 #: /views/categories/admin_tree.ctp:36
 msgid "Add a new one"
-msgstr "Добавить новую категорию"
+msgstr "Agrega una nueva"
 
 #: /views/categories/admin_tree.ctp:43
 msgid "Add category"
-msgstr "Добавить категорию"
+msgstr "Agregar categoría"
 
 #: /views/categories/admin_tree.ctp:51
 msgid "Add a child"
-msgstr "Добавить подкатегорию"
+msgstr "Agregar un hijo"
 
 #: /views/categories/admin_view.ctp:12
 #: /views/categories/view.ctp:12
 msgid "Category"
-msgstr "Категория"
+msgstr "Categoría"
 
 #: /views/categories/admin_view.ctp:14
 #: /views/categories/view.ctp:14
 msgid "Parent Category"
-msgstr "Родительская категория"
+msgstr "Categoría padre"
 
 #: /views/categories/admin_view.ctp:19
 #: /views/categories/view.ctp:19
 msgid "User"
-msgstr "Пользователь"
+msgstr "Usuario"
 
 #: /views/categories/admin_view.ctp:24
 #: /views/categories/view.ctp:24
 msgid "Name"
-msgstr "Наименование"
+msgstr "Nombre"
 
 #: /views/categories/admin_view.ctp:29
 #: /views/categories/view.ctp:29
 msgid "Description"
-msgstr "Описание"
+msgstr "Descripción"
 
 #: /views/categories/admin_view.ctp:34
 #: /views/categories/view.ctp:34
 msgid "Created"
-msgstr "Дата создания"
+msgstr "Creado"
 
 #: /views/categories/admin_view.ctp:44
 msgid "Delete Category"
-msgstr "Удалить категорию"
+msgstr "Eliminar Categoría"
 
 #: /views/categories/admin_view.ctp:45
 #: /views/categories/view.ctp:43
 msgid "List Categories"
-msgstr "Список категорий"
+msgstr "Listar Categorías"
 
 #: /views/categories/admin_view.ctp:46
 msgid "New Category"
-msgstr "Создать категорию"
+msgstr "Nueva Categoría"
 

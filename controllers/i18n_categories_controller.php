@@ -9,7 +9,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-App::import('Model', 'Categories.Category'); 
+App::import('Model', 'Categories.I18nCategory'); 
 
 /**
  * Categories controller
@@ -17,14 +17,21 @@ App::import('Model', 'Categories.Category');
  * @package categories
  * @subpackage categories.controllers
  */
-class CategoriesController extends CategoriesAppController {
+class I18nCategoriesController extends CategoriesAppController {
 
 /**
  * Name
  *
  * @var string
  */
-	public $name = 'Categories';
+	public $name = 'I18nCategories';
+
+/**
+ * Models
+ *
+ * @var array
+ */
+	public $uses = array('Categories.I18nCategory');
 
 /**
  * Helpers
@@ -40,6 +47,7 @@ class CategoriesController extends CategoriesAppController {
  */
 	public function beforeFilter() {
 		parent::beforeFilter();
+		$this->Category = $this->I18nCategory;
 		$this->Auth->allow('view', 'index');
 		$this->set('modelName', $this->modelClass); 
 	}
@@ -134,6 +142,11 @@ class CategoriesController extends CategoriesAppController {
  */
 	public function admin_edit($id = null) {
 		try {
+			$actualLanguages = $this->Category->getSupportedLanguages();
+			App::import('Lib', 'Utils.Languages');
+			$Languages = new Languages();
+			$languages = $Languages->lists('locale');
+			$this->set(compact('languages', 'actualLanguages'));
 			$result = $this->Category->edit($id, null, $this->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'Category saved', true));

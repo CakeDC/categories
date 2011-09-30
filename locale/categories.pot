@@ -8,8 +8,6 @@
 # @copyright Copyright 2010, Cake Development Corporation (http://cakedc.com)
 # @license MIT License (http://www.opensource.org/licenses/mit-license.php)
 #
-msgid ""
-msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2010-09-15 14:33+0200\n"
 "PO-Revision-Date: 2010-09-15 14:38+0100\n"
