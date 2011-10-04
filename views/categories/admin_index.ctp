@@ -52,7 +52,7 @@ foreach ($categories as $category):
 		<td class="actions">
 			<?php echo $this->Html->link(__d('categories', 'View', true), array('action'=>'view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__d('categories', 'Edit', true), array('action'=>'edit', $category['Category']['id'])); ?>
-			<?php echo $this->Html->link(__d('categories', 'Delete', true), array('action'=>'delete', $category['Category']['id']), null, sprintf(__d('categories', 'Are you sure you want to delete # %s?', true), $category['Category']['id'])); ?>
+			<?php echo $this->Html->link(__d('categories', 'Delete', true), array('action'=>'delete', $category['Category']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
