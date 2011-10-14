@@ -15,9 +15,8 @@
  * @package categories
  * @subpackage categories.models
  */
-// App::import('Model', 'Categories.Category');
-// class I18nCategory extends Category {
- class I18nCategory extends CategoriesAppModel {
+
+class I18nCategory extends CategoriesAppModel {
 
 /**
  * Name
@@ -63,8 +62,7 @@
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '')
-			);
+			'order' => ''));
 
 /**
  * hasMany associations
@@ -75,8 +73,7 @@
 		'ChildCategory' => array(
 			'className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
-			'dependent' => false)
-			);
+			'dependent' => false));
 
 /**
  * Validation rules

@@ -67,6 +67,7 @@ class CategoryFixture extends CakeTestFixture {
 			'category_id'  => null,
 			'foreign_key' => '',
 			'model' => 'Article',
+			'record_count' => 0,
 			'user_id'  => 'user-1',
 			'lft'  => 1,
 			'rght'  => 4,
@@ -81,6 +82,7 @@ class CategoryFixture extends CakeTestFixture {
 			'category_id'  => 'category-1',
 			'foreign_key' => '', 
 			'model' => 'Article',
+			'record_count' => 0,
 			'user_id'  => 'user-1', //phpnut
 			'lft'  => 2,
 			'rght'  => 3,
