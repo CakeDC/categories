@@ -151,7 +151,6 @@ class CategoriesControllerTestCase extends AppTestCase {
 	public function testAdminEdit() {
 		$this->Categories->Auth->setReturnValue('user', 'user-1', array('id'));
 		$this->Categories->admin_edit('category-1');
-		unset($this->Categories->data['Category']['record_count']);
 		$this->assertEqual($this->Categories->data['Category'], $this->record['Category']);
 
 		$this->Categories->data = $this->record;
