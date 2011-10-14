@@ -18,7 +18,7 @@ App::import('Lib', 'Categories.AppTestCase');
  * @package 	categories
  * @subpackage	categories.tests.cases.models
  */
-class CategoryTestCase extends AppTestCase {
+class CategorizedTestCase extends AppTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver

@@ -20,7 +20,7 @@ App::import('Lib', 'Categories.AppTestCase');
  * @package 	categories
  * @subpackage	categories.tests.cases.controlles
  */
-class CategoriesControllerTestCase extends AppTestCase {
+class I18nCategoriesControllerTestCase extends AppTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
