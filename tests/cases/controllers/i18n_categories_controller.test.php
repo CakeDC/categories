@@ -9,6 +9,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+App::import('Model', 'Categories.I18nCategory');
 App::import('Controller', 'Categories.I18nCategories');
 App::import('Component', array('Auth'));
 Mock::generate('AuthComponent', 'CategoriesControllerTestAuthComponent');
@@ -20,7 +21,7 @@ App::import('Lib', 'Categories.AppTestCase');
  * @package 	categories
  * @subpackage	categories.tests.cases.controlles
  */
-class CategoriesControllerTestCase extends AppTestCase {
+class I18nCategoriesControllerTestCase extends AppTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
@@ -44,6 +45,7 @@ class CategoriesControllerTestCase extends AppTestCase {
  * @return void
  */
 	public function startTest($method) {
+		Configure::write('Config.language', 'eng');
 		parent::startTest($method);
 		$this->Categories = AppMock::getTestController('I18nCategoriesController');
 		$this->Categories->constructClasses();
@@ -154,6 +156,8 @@ class CategoriesControllerTestCase extends AppTestCase {
 		$this->Categories->admin_edit('category-1');
 		$this->assertEqual($this->Categories->data['I18nCategory']['locale'], 'eng');
 		$this->assertEqual($this->Categories->data['I18nCategory']['name_translation'], array('eng' => 'Company News'));
+// debug($this->Categories->data);
+// debug($this->record);
 		unset(
 			$this->Categories->data['I18nCategory']['locale'], 
 			$this->Categories->data['I18nCategory']['record_count'],

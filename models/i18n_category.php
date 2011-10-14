@@ -144,7 +144,10 @@
 		$category = $this->find('first', array(
 			'contain' => array('User', 'ParentCategory'),
 			'conditions' => $conditions));
-
+// debug($category);
+// debug($conditions);
+// debug($this->find('all'));
+// debug($this);
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}
@@ -299,8 +302,10 @@
  */
 	public function clearCache() {
 		$locales = $this->getSupportedLanguages();
-		foreach ($locales as $locale) {
-			Cache::delete('category_' . $locale);
+		if (!empty($locales)) {
+			foreach ($locales as $locale) {
+				Cache::delete('category_' . $locale);
+			}
 		}
 	}
 
