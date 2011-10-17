@@ -16,20 +16,20 @@
  * @subpackage categories.config.schema
  */
 class categoriesSchema extends CakeSchema {
-	var $name = 'categories';
+	public $name = 'categories';
 
-	function before($event = array()) {
+	public function before($event = array()) {
 		return true;
 	}
 
-	function after($event = array()) {
+	public function after($event = array()) {
 	}
 
-	var $categories = array(
+	public $categories = array(
 		'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
 		'category_id' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 36),
 		'foreign_key' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 36),
-		'model' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'model' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'record_count' => array('type' => 'integer', 'null' => true, 'default' => '0'),
 		'user_id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'index'),
 		'lft' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
@@ -39,9 +39,13 @@ class categoriesSchema extends CakeSchema {
 		'description' => array('type' => 'text', 'null' => true, 'default' => NULL),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'UNIQUE_USER_CATEGORY' => array('column' => array('user_id', 'name'), 'unique' => 1))
+		'indexes' => array(
+			'PRIMARY' => array('column' => 'id', 'unique' => 1),
+			//'UNIQUE_USER_CATEGORY' => array('column' => array('user_id', 'name'), 'unique' => 1)
+		)
 	);
-	var $categorized = array(
+
+	public $categorized = array(
 		'id' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 36, 'key' => 'primary'),
 		'category_id' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 36, 'key' => 'index'),
 		'foreign_key' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 36),
@@ -49,6 +53,9 @@ class categoriesSchema extends CakeSchema {
 		'record_count' => array('type' => 'integer', 'null' => true, 'default' => '0'),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'UNIQUE_CATEGORY_CONTENT' => array('column' => array('category_id', 'foreign_key', 'model'), 'unique' => 1))
+		'indexes' => array(
+			'PRIMARY' => array('column' => 'id', 'unique' => 1),
+			'UNIQUE_CATEGORY_CONTENT' => array('column' => array('category_id', 'foreign_key', 'model'), 'unique' => 1)
+		)
 	);
 }
