@@ -141,7 +141,10 @@ class I18nCategory extends CategoriesAppModel {
 		$category = $this->find('first', array(
 			'contain' => array('User', 'ParentCategory'),
 			'conditions' => $conditions));
-
+// debug($category);
+// debug($conditions);
+// debug($this->find('all'));
+// debug($this);
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
 		}

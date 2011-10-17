@@ -60,5 +60,19 @@ class TranslateFixture extends CakeTestFixture {
 			'foreign_key' => 'category-2',
 			'field' => 'name',
 			'content' => 'Uncategorized'),
+		array(
+			'id' => 'i18n-1a',
+			'locale' => 'eng',
+			'model' => 'Category',
+			'foreign_key' => 'category-1',
+			'field' => 'name',
+			'content' => 'Company News'),
+		array(
+			'id' => 'i18n-2b',
+			'locale' => 'eng',
+			'model' => 'Category',
+			'foreign_key' => 'category-2',
+			'field' => 'name',
+			'content' => 'Uncategorized'),
 	);
 }
