@@ -44,7 +44,7 @@ If your application demands multiple categories for each item, you would need to
 				'className' => 'Categories.Category',
 				'foreignKey' => 'foreign_key',
 				'associationForeignKey' => 'category_id',
-				'with' => 'Categorized'
+				'with' => 'Categories.Categorized'
 			)
 		);
 	}
