@@ -82,7 +82,7 @@ class Category extends CategoriesAppModel {
 		parent::__construct($id, $table, $ds);
 		$this->validate = array(
 			'name' => array(
-				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name', true))));
+				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name'))));
 	}
 
 /**
@@ -101,7 +101,7 @@ class Category extends CategoriesAppModel {
 				$this->data = array_merge($data, $result);
 				return true;
 			} else {
-				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.', true));
+				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.'));
 			}
 			return $result;
 		}
@@ -126,7 +126,7 @@ class Category extends CategoriesAppModel {
 			'conditions' => $conditions));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
 		$this->set($category);
 
@@ -160,7 +160,7 @@ class Category extends CategoriesAppModel {
 				$this->alias . '.slug' => $slug))));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
 
 		return $category;
@@ -183,7 +183,7 @@ class Category extends CategoriesAppModel {
 				)));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
 
 		$this->data['category'] = $category;
@@ -201,7 +201,7 @@ class Category extends CategoriesAppModel {
 				}
 			}
 			$this->validate = $tmp;
-			throw new Exception(__d('categories', 'You need to confirm to delete this Category', true));
+			throw new Exception(__d('categories', 'You need to confirm to delete this Category'));
 		}
 	}
 }
