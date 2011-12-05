@@ -126,7 +126,7 @@ class CategoriesController extends CategoriesAppController {
 		try {
 			$result = $this->Category->add($this->Auth->user('id'), $this->data);
 			if ($result === true) {
-				$this->Session->setFlash(__d('categories', 'The category has been saved', true));
+				$this->Session->setFlash(__d('categories', 'The category has been saved'));
 				$this->redirect(array('action' => 'index'));
 			}
 		} catch (OutOfBoundsException $e) {
@@ -152,7 +152,7 @@ class CategoriesController extends CategoriesAppController {
 		try {
 			$result = $this->Category->edit($id, null, $this->data);
 			if ($result === true) {
-				$this->Session->setFlash(__d('categories', 'Category saved', true));
+				$this->Session->setFlash(__d('categories', 'Category saved'));
 				$this->redirect(array('action' => 'view', $this->Category->data[$this->Category->alias]['slug']));
 				
 			} else {
@@ -177,7 +177,7 @@ class CategoriesController extends CategoriesAppController {
 		try {
 			$result = $this->Category->validateAndDelete($id, $this->Auth->user('id'), $this->data);
 			if ($result === true) {
-				$this->Session->setFlash(__d('categories', 'Category deleted', true));
+				$this->Session->setFlash(__d('categories', 'Category deleted'));
 				$this->redirect(array('action' => 'index'));
 			}
 		} catch (Exception $e) {
