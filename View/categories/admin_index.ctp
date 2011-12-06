@@ -23,7 +23,7 @@ echo $this->Paginator->counter(array(
 	<th><?php echo $this->Paginator->sort('name');?></th>
 	<th><?php echo $this->Paginator->sort('description');?></th>
 	<th><?php echo $this->Paginator->sort('created');?></th>
-	<th class="actions"><?php __d('categories', 'Actions');?></th>
+	<th class="actions"><?php echo __d('categories', 'Actions');?></th>
 </tr>
 <?php
 $i = 0;

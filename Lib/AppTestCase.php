@@ -106,7 +106,7 @@ ControllerTestCase
 		}
 
 		if (!isset($config)) {
-			$error = __("AppTestCase::load() - no variable \$config found in %s.php", true);
+			$error = __("AppTestCase::load() - no variable \$config found in %s.php");
 			trigger_error(sprintf($error, $fileName), E_USER_WARNING);
 			return false;
 		}

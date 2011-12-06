@@ -96,7 +96,7 @@
 		parent::__construct($id, $table, $ds);
 		$this->validate = array(
 			'name' => array(
-				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name', true))));
+				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name'))));
 	}
 
 /**
@@ -116,7 +116,7 @@
 				$this->data = array_merge($data, $result);
 				return true;
 			} else {
-				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.', true));
+				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.'));
 			}
 			return $result;
 		}
@@ -141,7 +141,7 @@
 			'conditions' => $conditions));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
 
 		$category[$this->alias]['name_translation'] = $this->readTranslations($category[$this->alias]['id'], 'name');
@@ -227,7 +227,7 @@
 				$this->alias . '.id' => $slug,
 				$this->alias . '.slug' => $slug))));
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
 
 
@@ -251,7 +251,7 @@
 				$this->alias . '.user_id' => $userId)));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category', true));
+			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
 
 		$this->data['category'] = $category;
@@ -269,7 +269,7 @@
 				}
 			}
 			$this->validate = $tmp;
-			throw new Exception(__d('categories', 'You need to confirm to delete this Category', true));
+			throw new Exception(__d('categories', 'You need to confirm to delete this Category'));
 		}
 	}
 
