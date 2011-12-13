@@ -9,7 +9,8 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-App::import('Model', 'Categories.I18nCategory'); 
+App::uses('Model', 'Categories.I18nCategory'); 
+App::uses('CategoriesAppController', 'Categories.Controller');
 
 /**
  * Categories controller

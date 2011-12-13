@@ -9,10 +9,14 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+App::uses('AppModel', 'Model');
+
 /**
- * Categories Application Model
+ * Categories AppModel
  *
- * @package categories
+ * @package Categories
+ * @subpackage Categories.Model
  */
 class CategoriesAppModel extends AppModel {
+	
 }

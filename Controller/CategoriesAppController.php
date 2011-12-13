@@ -9,10 +9,14 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+App::uses('AppController', 'Controller');
+
 /**
- * Categories Application Controller
+ * Categories AppController
  *
- * @package categories
+ * @package Categories
+ * @subpackage Categories.Controller
  */
 class CategoriesAppController extends AppController {
+	
 }
