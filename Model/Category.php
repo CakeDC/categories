@@ -32,8 +32,8 @@ class Category extends CategoriesAppModel {
  */
 	public $actsAs = array(
 		'Tree' => array('parent' => 'category_id'),
-		'Utils.Sluggable' => array(
-			'label' => 'name'));
+		'Utils.Sluggable' => array('label' => 'name'),
+	);
 
 /**
  * belongsTo associations
@@ -46,7 +46,9 @@ class Category extends CategoriesAppModel {
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''));
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations
@@ -57,7 +59,9 @@ class Category extends CategoriesAppModel {
 		'ChildCategory' => array(
 			'className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
-			'dependent' => false));
+			'dependent' => false
+		)
+	);
 
 /**
  * Validation rules
@@ -78,11 +82,19 @@ class Category extends CategoriesAppModel {
 		}
 		$this->belongsTo['User'] = array(
 			'className' => $userClass,
-			'foreignKey' => 'user_id');
+			'foreignKey' => 'user_id'
+		);
 		parent::__construct($id, $table, $ds);
 		$this->validate = array(
 			'name' => array(
-				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name'))));
+				'required' => array(
+					'rule' => array('notEmpty'),
+					'required' => true,
+					'allowEmpty' => false,
+					'message' => __d('categories', 'Please enter a category name')
+				)
+			)
+		);
 	}
 
 /**
@@ -90,7 +102,7 @@ class Category extends CategoriesAppModel {
  *
  * @param string $userId, user id
  * @param array post data, should be Contoller->data
- * @return array
+ * @return boolean
  */
 	public function add($userId = null, $data = null) {
 		if (!empty($data)) {
@@ -100,10 +112,9 @@ class Category extends CategoriesAppModel {
 			if ($result !== false) {
 				$this->data = array_merge($data, $result);
 				return true;
-			} else {
-				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.'));
 			}
-			return $result;
+
+			throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.'));
 		}
 	}
 
@@ -128,19 +139,19 @@ class Category extends CategoriesAppModel {
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
-		$this->set($category);
 
-		if (!empty($data)) {
-			$this->set($data);
-			$result = $this->save(null, true);
-			if ($result) {
-				$this->data = $result;
-				return true;
-			} else {
-				return $data;
-			}
-		} else {
+		$this->set($category);
+		if (empty($data)) {
 			return $category;
+		}
+
+		$this->set($data);
+		$result = $this->save(null, true);
+		if ($result) {
+			$this->data = $result;
+			return true;
+		} else {
+			return $data;
 		}
 	}
 
@@ -156,8 +167,11 @@ class Category extends CategoriesAppModel {
 			'contain' => array('User', 'ParentCategory'),
 			'conditions' => array(
 				'or' => array(
-				$this->alias . '.id' => $slug,
-				$this->alias . '.slug' => $slug))));
+					$this->alias . '.id' => $slug,
+					$this->alias . '.slug' => $slug
+				)
+			)
+		));
 
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
@@ -176,11 +190,10 @@ class Category extends CategoriesAppModel {
  * @throws OutOfBoundsException If the element does not exists
  */
 	public function validateAndDelete($id = null, $userId = null, $data = array()) {
-		$category = $this->find('first', array(
-			'conditions' => array(
-				"{$this->alias}.{$this->primaryKey}" => $id,
-				"{$this->alias}.user_id" => $userId
-				)));
+		$category = $this->find('first', array('conditions' => array(
+			"{$this->alias}.{$this->primaryKey}" => $id,
+			"{$this->alias}.user_id" => $userId
+		)));
 
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
@@ -192,16 +205,18 @@ class Category extends CategoriesAppModel {
 			$tmp = $this->validate;
 			$this->validate = array(
 				'id' => array('rule' => 'notEmpty'),
-				'confirm' => array('rule' => '[1]'));
+				'confirm' => array('rule' => '[1]')
+			);
 
 			$this->set($data);
-			if ($this->validates()) {
-				if ($this->delete($data[$this->alias]['id'])) {
-					return true;
-				}
+			if (!$this->validates()) {
+				$this->validate = $tmp;
+				throw new Exception(__d('categories', 'You need to confirm to delete this Category'));
 			}
-			$this->validate = $tmp;
-			throw new Exception(__d('categories', 'You need to confirm to delete this Category'));
+
+			if ($this->delete($data[$this->alias]['id'])) {
+				return true;
+			}
 		}
 	}
 }
