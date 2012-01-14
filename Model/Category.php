@@ -32,7 +32,6 @@ class Category extends CategoriesAppModel {
  */
 	public $actsAs = array(
 		'Tree' => array('parent' => 'category_id'),
-		'Utils.Sluggable' => array('label' => 'name'),
 	);
 
 /**
@@ -84,6 +83,11 @@ class Category extends CategoriesAppModel {
 			'className' => $userClass,
 			'foreignKey' => 'user_id'
 		);
+
+		$this->actsAs['Utils.Sluggable'] = array_merge(array(
+			'label' => 'name'
+		), (array) Configure::read('Category.sluggable'));
+
 		parent::__construct($id, $table, $ds);
 		$this->validate = array(
 			'name' => array(
