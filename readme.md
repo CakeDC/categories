@@ -11,9 +11,9 @@ Any item of data can be added to one or more categories. For this, you can use a
 1. Place the problems folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
 
 2. Create database tables using either the schema shell or the [CakeDC Migrations plugin](http://github.com/CakeDC/migrations):
-	`cake schema create -plugin categories -name categories`
+	`cake schema create --plugin Categories --name categories`
 	or
-	`cake migration run all -plugin categories`
+	`cake migration run all --plugin Categories`
 
 3. As this plugin depends on the [CakeDC Utils plugin](http://github.com/CakeDC/utils), you need to get it too and follow it's installation instructions (for this plugin dropping it into the plugins folder will be enough)
 
