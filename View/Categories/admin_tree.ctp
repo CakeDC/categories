@@ -24,7 +24,7 @@
 			'/categories/css/basic'), 
 		null, 
 		array('inline' => false));
-	$this->Html->scriptBlock('App.pagesAdminIndex.init();');
+	echo $this->Html->scriptBlock('$(function(){App.pagesAdminIndex.init();});');
 ?>
 
 <div id="category-menu">
