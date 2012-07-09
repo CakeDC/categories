@@ -47,7 +47,7 @@ class CategoriesController extends CategoriesAppController {
  *
  * @var array
  */
-	public $users = array('Categories.Category');
+	public $uses = array('Categories.Category');
 
 /**
  * beforeFilter callback
