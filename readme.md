@@ -1,7 +1,5 @@
 # Categories Plugin for CakePHP #
 
-Version 1.1
-
 The categories plugin is for allowing users to organize any data into categories.
 
 It provides a basic admin interface to manage both tree and flat style categories.
@@ -10,12 +8,12 @@ Any item of data can be added to one or more categories. For this, you can use a
 
 ### Installation ##
 
-1. Place the `categories` folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
+1. Place the problems folder into any of your plugin directories for your app (for example app/plugins or cake/plugins)
 
 2. Create database tables using either the schema shell or the [CakeDC Migrations plugin](http://github.com/CakeDC/migrations):
-	`cake schema create -plugin categories -name categories`
+	`cake schema create --plugin Categories --name categories`
 	or
-	`cake migration run all -plugin categories`
+	`cake migration run all --plugin Categories`
 
 3. As this plugin depends on the [CakeDC Utils plugin](http://github.com/CakeDC/utils), you need to get it too and follow it's installation instructions (for this plugin dropping it into the plugins folder will be enough)
 
@@ -46,7 +44,7 @@ If your application demands multiple categories for each item, you would need to
 				'className' => 'Categories.Category',
 				'foreignKey' => 'foreign_key',
 				'associationForeignKey' => 'category_id',
-				'with' => 'Categorized'
+				'with' => 'Categories.Categorized'
 			)
 		);
 	}
@@ -102,7 +100,7 @@ Redistributions of files must retain the above copyright notice.
 
 ## Copyright ###
 
-Copyright 2009-2011<br/>
+Copyright 2009-2010<br/>
 [Cake Development Corporation](http://cakedc.com)<br/>
 1785 E. Sahara Avenue, Suite 490-423<br/>
 Las Vegas, Nevada 89104<br/>
