@@ -117,7 +117,7 @@ class I18nCategoriesController extends CategoriesAppController {
  */
 	public function admin_add($category_id = null) {
 		try {
-			$result = $this->Category->add($this->Auth->user('id'), $this->data);
+			$result = $this->Category->add($this->Auth->user('id'), $this->request->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'The category has been saved'));
 				$this->redirect(array('action' => 'index'));
@@ -128,8 +128,8 @@ class I18nCategoriesController extends CategoriesAppController {
 			$this->Session->setFlash($e->getMessage());
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->data) && !empty($category_id)) {
-			$this->data[$this->Category->alias]['category_id'] = $category_id;
+		if (!empty($this->request->data) && !empty($category_id)) {
+			$this->request->data[$this->Category->alias]['category_id'] = $category_id;
 		}
 		$categories = $this->Category->find('list');
 		$users = $this->Category->User->find('list');
@@ -148,13 +148,13 @@ class I18nCategoriesController extends CategoriesAppController {
 			$Languages = new Languages();
 			$languages = $Languages->lists('locale');
 			$this->set(compact('languages', 'actualLanguages'));
-			$result = $this->Category->edit($id, null, $this->data);
+			$result = $this->Category->edit($id, null, $this->request->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'Category saved'));
 				$this->redirect(array('action' => 'view', $this->Category->data[$this->Category->alias]['slug']));
 				
 			} else {
-				$this->data = $result;
+				$this->request->data = $result;
 			}
 		} catch (OutOfBoundsException $e) {
 			$this->Session->setFlash($e->getMessage());
@@ -173,7 +173,7 @@ class I18nCategoriesController extends CategoriesAppController {
  */
 	public function admin_delete($id = null) {
 		try {
-			$result = $this->Category->validateAndDelete($id, $this->Auth->user('id'), $this->data);
+			$result = $this->Category->validateAndDelete($id, $this->Auth->user('id'), $this->request->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'Category deleted'));
 				$this->redirect(array('action' => 'index'));
