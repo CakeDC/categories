@@ -281,7 +281,7 @@ class CategoriesControllerTestCase extends CakeTestCase {
 		$this->Categories->admin_delete('category-1');
 		$this->assertTrue(!empty($this->Categories->viewVars['category']));
 
-		$this->Categories->request->data = array('Category' => array('confirmed' => 1));
+		$this->Categories->request->data = array('Category' => array('confirm' => 1));
 		$this->Categories->admin_delete('category-1');
 		//$this->Categories->expectRedirect(array('action' => 'index'));
 		$this->assertFlash('Category deleted');
