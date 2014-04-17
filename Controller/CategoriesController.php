@@ -127,15 +127,16 @@ class CategoriesController extends CategoriesAppController {
 			$result = $this->Category->add($this->Auth->user('id'), $this->request->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'The category has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'tree'));
 			}
 		} catch (OutOfBoundsException $e) {
 			$this->Session->setFlash($e->getMessage());
 		} catch (Exception $e) {
 			$this->Session->setFlash($e->getMessage());
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'tree'));
 		}
-		if (!empty($this->request->data) && !empty($category_id)) {
+
+		if (empty($this->request->data) && !empty($category_id)) {
 			$this->request->data[$this->Category->alias]['category_id'] = $category_id;
 		}
 		$categories = $this->Category->find('list');
