@@ -139,7 +139,7 @@ class CategoriesController extends CategoriesAppController {
 		if (empty($this->request->data) && !empty($category_id)) {
 			$this->request->data[$this->Category->alias]['category_id'] = $category_id;
 		}
-		$categories = $this->Category->find('list');
+		$categories = $this->Category->generateTreeList(null, null, null, "- ");
 		$users = $this->Category->User->find('list');
 		$this->set(compact('categories', 'users'));
 	}
@@ -163,7 +163,7 @@ class CategoriesController extends CategoriesAppController {
 			$this->Session->setFlash($e->getMessage());
 			$this->redirect('/');
 		}
-		$categories = $this->Category->find('list');
+		$categories = $this->Category->generateTreeList(null, null, null, "- ");
 		$users = $this->Category->User->find('list');
 		$this->set(compact('categories', 'users'));
  
