@@ -1,0 +1,22 @@
+{
+  "name": "cakedc/categories",
+  "type": "cakephp-plugin",
+  "description": "Categories Plugin for CakePHP.",
+  "homepage": "http://github.com/CakeDC/categories",
+  "keywords": ["cakephp", "categories", "plugin"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cake Development Corporation",
+      "email": "team@cakedc.com",
+      "homepage": "http://cakedc.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "composer/installers": "*"
+  },
+  "extra": {
+    "installer-name": "Categories"
+  }
+}
