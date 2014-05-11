@@ -57,4 +57,8 @@ foreach ($categories as $category):
 	</tr>
 <?php endforeach; ?>
 </table>
-<?php echo $this->element('paging');?>
+<div class="paging">
+	<?php echo $this->Paginator->prev('<< '.__d('categories', 'previous'), array(), null, array('class'=>'disabled'));?>
+ | 	<?php echo $this->Paginator->numbers();?>
+	<?php echo $this->Paginator->next(__d('categories', 'next').' >>', array(), null, array('class' => 'disabled'));?>
+</div>

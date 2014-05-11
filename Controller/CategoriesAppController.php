@@ -18,5 +18,5 @@ App::uses('AppController', 'Controller');
  * @subpackage Categories.Controller
  */
 class CategoriesAppController extends AppController {
-	
+
 }

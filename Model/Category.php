@@ -31,9 +31,10 @@ class Category extends CategoriesAppModel {
  * @var array
  */
 	public $actsAs = array(
-		'Tree' => array('parent' => 'category_id'),
-		'Utils.Sluggable' => array(
-			'label' => 'name'));
+		'Tree' => array(
+			'parent' => 'category_id'
+		)
+	);
 
 /**
  * belongsTo associations
@@ -46,7 +47,9 @@ class Category extends CategoriesAppModel {
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''));
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations
@@ -57,7 +60,9 @@ class Category extends CategoriesAppModel {
 		'ChildCategory' => array(
 			'className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
-			'dependent' => false));
+			'dependent' => false
+		)
+	);
 
 /**
  * Validation rules
@@ -79,6 +84,9 @@ class Category extends CategoriesAppModel {
 		$this->belongsTo['User'] = array(
 			'className' => $userClass,
 			'foreignKey' => 'user_id');
+		$this->actsAs['Utils.Sluggable'] = array_merge(array(
+			'label' => 'name'
+		), (array) Configure::read('Category.sluggable'));
 		parent::__construct($id, $table, $ds);
 		$this->validate = array(
 			'name' => array(

@@ -42,11 +42,11 @@ class I18nCategoryTestCase extends CakeTestCase {
  * @param string $method
  * @return void
  */
-	public function startTest($method) {
+	public function setUp() {
+		parent::setUp();
 		Configure::write('App.UserClass', null); 
 		Configure::write('Config.language', 'eng');
 		Configure::write('Config.languages', array('eng', 'deu', 'rus'));
-		parent::startTest($method);
 		$this->I18nCategory = ClassRegistry::init('Categories.I18nCategory');
 		$fixture = new CategoryFixture();
 		$this->record = array('I18nCategory' => $fixture->records[0]);
@@ -58,8 +58,8 @@ class I18nCategoryTestCase extends CakeTestCase {
  * @param string $method
  * @return void
  */
-	public function endTest($method) {
-		parent::endTest($method);
+	public function tearDown() {
+		parent::tearDown();
 		unset($this->I18nCategory);
 		ClassRegistry::flush();
 	}

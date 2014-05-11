@@ -9,8 +9,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-App::import('Controller', 'Categories.Categories');
-
+App::uses('CategoriesController', 'Categories.Controller');
 App::uses('Controller', 'Controller');
 App::uses('Router', 'Routing');
 App::uses('CakeRequest', 'Network');
@@ -106,7 +105,8 @@ class CategoriesControllerTestCase extends CakeTestCase {
  * @param string $method
  * @return void
  */
-	public function startTest() {
+	public function setUp() {
+		parent::setUp();
 		$this->Categories = new TestCategoriesController(new CakeRequest());
 		$this->Categories->constructClasses();
 
@@ -118,8 +118,7 @@ class CategoriesControllerTestCase extends CakeTestCase {
 		$this->AuthComponent = new MockAuthComponent2($this->Collection);
 		$this->AuthComponent->enabled = true;
 		$this->Categories->Auth = $this->AuthComponent;
-		
-		
+
 		$this->Categories->request->params = array(
 			'named' => array(),
 			'pass' => array(),
@@ -134,7 +133,8 @@ class CategoriesControllerTestCase extends CakeTestCase {
  * @param string $method
  * @return void
  */
-	public function endTest() {
+	public function tearDown() {
+		parent::tearDown();
 		unset($this->Categories);
 		ClassRegistry::flush();
 	}
@@ -281,7 +281,7 @@ class CategoriesControllerTestCase extends CakeTestCase {
 		$this->Categories->admin_delete('category-1');
 		$this->assertTrue(!empty($this->Categories->viewVars['category']));
 
-		$this->Categories->request->data = array('Category' => array('confirmed' => 1));
+		$this->Categories->request->data = array('Category' => array('confirm' => 1));
 		$this->Categories->admin_delete('category-1');
 		//$this->Categories->expectRedirect(array('action' => 'index'));
 		$this->assertFlash('Category deleted');

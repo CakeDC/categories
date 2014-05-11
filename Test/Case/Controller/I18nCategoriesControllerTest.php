@@ -9,10 +9,8 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-App::import('Controller', 'Categories.I18nCategories');
-App::import('Component', array('Auth'));
-//Mock::generate('AuthComponent', 'CategoriesControllerTestAuthComponent');
-
+App::uses('I18nCategoriesController', 'Categories.Controller');
+App::uses('Auth', 'Component');
 App::uses('Controller', 'Controller');
 App::uses('Router', 'Routing');
 App::uses('CakeRequest', 'Network');
@@ -24,7 +22,7 @@ App::uses('CakeResponse', 'Network');
  * @package 	categories
  * @subpackage	categories.tests.cases.controlles
  */
-class CategoriesControllerTestCase extends AppTestCase {
+class I18nCategoriesControllerTestCase extends CakeTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
@@ -43,7 +41,8 @@ class CategoriesControllerTestCase extends AppTestCase {
 		'plugin.categories.categorized',
 		'plugin.categories.category',
 		'plugin.categories.translate',
-		'plugin.categories.user');
+		'plugin.categories.user'
+	);
 
 /**
  * Start Test callback
@@ -71,8 +70,7 @@ class CategoriesControllerTestCase extends AppTestCase {
  * @param string $method
  * @return void
  */
-	public function endTest($method) {
-		parent::endTest($method);
+	public function tearDown() {
 		unset($this->Categories);
 		ClassRegistry::flush();
 	}

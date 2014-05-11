@@ -17,7 +17,7 @@ App::uses('Model', 'Model');
  * @package 	categories
  * @subpackage	categories.tests.cases.models
  */
-class CategoryTestCase extends CakeTestCase {
+class CategorizedTestCase extends CakeTestCase {
 
 /**
  * Autoload entrypoint for fixtures dependecy solver
@@ -43,7 +43,8 @@ class CategoryTestCase extends CakeTestCase {
  *
  * @return void
  */
-	public function startTest() {
+	public function setUp() {
+		parent::setUp();
 		$this->Categorized = ClassRegistry::init('Categories.Categorized');
 	}
 
@@ -52,7 +53,8 @@ class CategoryTestCase extends CakeTestCase {
  *
  * @return void
  */
-	public function endTest() {
+	public function tearDown() {
+		parent::tearDown();
 		unset($this->Categorized);
 		ClassRegistry::flush();
 	}

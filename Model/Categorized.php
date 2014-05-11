@@ -31,9 +31,17 @@ class Categorized extends CategoriesAppModel {
  */
 	public $useTable = 'categorized';
 
+/**
+ * belongsTo associations
+ *
+ * @var array
+ */
 	public $belongsTo = array(
 		'Category' => array(
-			'className' => 'Categories.Category'));
+			'className' => 'Categories.Category'
+		)
+	);
+
 /**
  * Validation rules
  *
@@ -54,7 +62,9 @@ class Categorized extends CategoriesAppModel {
 			'category_id' => array(
 				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Category id can not be empty'))),
 			'model' => array(
-				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Model field can not be empty'))));
+				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Model field can not be empty'))
+			)
+		);
 	}
 
 }
