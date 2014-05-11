@@ -31,7 +31,10 @@ class Category extends CategoriesAppModel {
  * @var array
  */
 	public $actsAs = array(
-		'Tree' => array('parent' => 'category_id'));
+		'Tree' => array(
+			'parent' => 'category_id'
+		)
+	);
 
 /**
  * belongsTo associations
@@ -44,7 +47,9 @@ class Category extends CategoriesAppModel {
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''));
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations
@@ -55,7 +60,9 @@ class Category extends CategoriesAppModel {
 		'ChildCategory' => array(
 			'className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
-			'dependent' => false));
+			'dependent' => false
+		)
+	);
 
 /**
  * Validation rules

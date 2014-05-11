@@ -18,5 +18,5 @@ App::uses('AppModel', 'Model');
  * @subpackage Categories.Model
  */
 class CategoriesAppModel extends AppModel {
-	
+
 }

@@ -36,7 +36,8 @@ class CategoryTestCase extends CakeTestCase {
 		'plugin.categories.categorized',
 		'plugin.categories.category',
 		'plugin.categories.translate',
-		'plugin.categories.user');
+		'plugin.categories.user'
+	);
 
 /**
  * Start Test callback
@@ -45,7 +46,7 @@ class CategoryTestCase extends CakeTestCase {
  * @return void
  */
 	public function setUp() {
-		Configure::write('App.UserClass', null); 
+		Configure::write('App.UserClass', null);
 		parent::setUp();
 		//$this->Category = $this->getMock('Categories.Category');
 		$this->Category = ClassRegistry::init('Categories.Category');
@@ -60,7 +61,7 @@ class CategoryTestCase extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		//parent::endTest($method);
+		parent::tearDown();
 		unset($this->Category);
 		ClassRegistry::flush();
 	}
@@ -76,7 +77,6 @@ class CategoryTestCase extends CakeTestCase {
 		unset($data['Category']['id']);
 		$result = $this->Category->add($userId, $data);
 		$this->assertTrue($result);
-		
 		try {
 			$data = $this->record;
 			unset($data['Category']['id']);
@@ -86,7 +86,6 @@ class CategoryTestCase extends CakeTestCase {
 		} catch (OutOfBoundsException $e) {
 			//$this->pass('Correct exception thrown');
 		}
-		
 	}
 
 /**

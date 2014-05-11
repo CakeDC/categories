@@ -32,22 +32,28 @@ class CategoriesController extends CategoriesAppController {
  *
  * @var array
  */
-	public $helpers = array('Html', 'Form');
+	public $helpers = array(
+		'Html',
+		'Form'
+	);
 
 /**
  * Components
  *
  * @var array
  */
-	public $components = array('Auth');
-
+	public $components = array(
+		'Auth'
+	);
 
 /**
  * Components
  *
  * @var array
  */
-	public $uses = array('Categories.Category');
+	public $uses = array(
+		'Categories.Category'
+	);
 
 /**
  * beforeFilter callback
@@ -57,7 +63,7 @@ class CategoriesController extends CategoriesAppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('view', 'index');
-		$this->set('modelName', $this->modelClass); 
+		$this->set('modelName', $this->modelClass);
 	}
 
 /**
@@ -66,7 +72,7 @@ class CategoriesController extends CategoriesAppController {
  */
 	public function index() {
 		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate()); 
+		$this->set('categories', $this->paginate());
 	}
 
 /**
@@ -81,7 +87,7 @@ class CategoriesController extends CategoriesAppController {
 			$this->Session->setFlash($e->getMessage());
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set(compact('category')); 
+		$this->set(compact('category'));
 	}
 
 /**
@@ -90,7 +96,7 @@ class CategoriesController extends CategoriesAppController {
  */
 	public function admin_index() {
 		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate()); 
+		$this->set('categories', $this->paginate());
 	}
 
 /**
@@ -115,14 +121,14 @@ class CategoriesController extends CategoriesAppController {
 			$this->Session->setFlash($e->getMessage());
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set(compact('category')); 
+		$this->set(compact('category'));
 	}
 
 /**
  * Admin add for category.
  * 
  */
-	public function admin_add($category_id = null) {
+	public function admin_add($categoryId = null) {
 		try {
 			$result = $this->Category->add($this->Auth->user('id'), $this->request->data);
 			if ($result === true) {
@@ -135,8 +141,8 @@ class CategoriesController extends CategoriesAppController {
 			$this->Session->setFlash($e->getMessage());
 			$this->redirect(array('action' => 'index'));
 		}
-		if (!empty($this->request->data) && !empty($category_id)) {
-			$this->request->data[$this->Category->alias]['category_id'] = $category_id;
+		if (!empty($this->request->data) && !empty($categoryId)) {
+			$this->request->data[$this->Category->alias]['category_id'] = $categoryId;
 		}
 		$categories = $this->Category->find('list');
 		$users = $this->Category->User->find('list');
@@ -154,7 +160,6 @@ class CategoriesController extends CategoriesAppController {
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'Category saved'));
 				$this->redirect(array('action' => 'view', $this->Category->data[$this->Category->alias]['slug']));
-				
 			} else {
 				$this->request->data = $result;
 			}
@@ -165,8 +170,7 @@ class CategoriesController extends CategoriesAppController {
 		$categories = $this->Category->find('list');
 		$users = $this->Category->User->find('list');
 		$this->set(compact('categories', 'users'));
- 
-	}
+ 	}
 
 /**
  * Admin delete for category.
