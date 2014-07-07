@@ -43,7 +43,8 @@ class I18nCategoriesController extends CategoriesAppController {
  */
 	public $helpers = array(
 		'Html',
-		'Form'
+		'Form',
+		'Utils.Tree'
 	);
 
 /**
@@ -97,7 +98,6 @@ class I18nCategoriesController extends CategoriesAppController {
  */
 	public function admin_tree() {
 		$this->Category->recursive = 0;
-		$this->helpers[] = 'Utils.Tree';
 		$this->set('categories', $this->Category->find('all', array('order' => $this->Category->alias . '.lft')));
 	}
 
@@ -149,7 +149,7 @@ class I18nCategoriesController extends CategoriesAppController {
 	public function admin_edit($id = null) {
 		try {
 			$actualLanguages = $this->Category->getSupportedLanguages();
-			App::import('Lib', 'Utils.Languages');
+			App::uses('Languages', 'Utils.Lib');
 			$Languages = new Languages();
 			$languages = $Languages->lists('locale');
 			$this->set(compact('languages', 'actualLanguages'));
