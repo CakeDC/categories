@@ -48,8 +48,7 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 	public $actsAs = array(
 		'Tree' => array('parent' => 'category_id'),
 		'Translate' => array('name'),
-		'Utils.Sluggable' => array(
-			'label' => 'name'));
+	);
 
 /**
  * belongsTo associations
@@ -61,7 +60,9 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 			'foreignKey' => 'category_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''));
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations
@@ -72,8 +73,9 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 		'ChildCategory' => array(
 			'className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
-			'dependent' => false)
-			);
+			'dependent' => false
+		)
+	);
 
 /**
  * Validation rules
@@ -96,6 +98,7 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 			'className' => $userClass,
 			'foreignKey' => 'user_id');
 		parent::__construct($id, $table, $ds);
+		$this->_setupBehaviors();
 		$this->validate = array(
 			'name' => array(
 				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name'))));
@@ -195,7 +198,6 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 				$I18n->save($data);
 			}
 		}
-
 	}
 
 /**
@@ -231,9 +233,6 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 		if (empty($category)) {
 			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
 		}
-
-
-
 		return $category;
 	}
 
@@ -295,7 +294,6 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 		return $categories;
 	}
 
-
 /**
  * Clear categories cache
  *
@@ -319,5 +317,4 @@ App::uses('CategoriesAppModel', 'Categories.Model');
 		}
 		return $languages;
 	}
-
 }

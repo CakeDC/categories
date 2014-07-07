@@ -89,21 +89,8 @@ class Category extends CategoriesAppModel {
  */
 	public function __construct($id = false, $table = null, $ds = null) {
 		$this->_associateUserModel();
-		$this->_loadSluggable();
 		parent::__construct($id, $table, $ds);
-	}
-
-/**
- * Loads the sluggable behavior from the CakeDC Utils plugin if present
- *
- * @return void
- */
-	protected function _loadSluggable() {
-		if (CakePlugin::loaded('Utils')) {
-			$this->actsAs['Utils.Sluggable'] = array_merge(array(
-				'label' => 'name'
-			), (array)Configure::read('Category.sluggable'));
-		}
+		$this->_setupBehaviors();
 	}
 
 /**

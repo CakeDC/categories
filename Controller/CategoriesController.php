@@ -34,7 +34,8 @@ class CategoriesController extends CategoriesAppController {
  */
 	public $helpers = array(
 		'Html',
-		'Form'
+		'Form',
+		'Utils.Tree'
 	);
 
 /**
@@ -108,7 +109,6 @@ class CategoriesController extends CategoriesAppController {
  */
 	public function admin_tree() {
 		$this->Category->recursive = 0;
-		$this->helpers[] = 'Utils.Tree';
 		$this->set('categories', $this->Category->find('all', array('order' => $this->Category->alias . '.lft')));
 	}
 
