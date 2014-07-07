@@ -10,6 +10,7 @@
  */
 
 App::uses('CategoriesAppModel', 'Categories.Model');
+
 /**
  * Category model
  *
@@ -41,7 +42,6 @@ class Category extends CategoriesAppModel {
  *
  * @var array $belongsTo
  */
-
 	public $belongsTo = array(
 		'ParentCategory' => array('className' => 'Categories.Category',
 			'foreignKey' => 'category_id',
@@ -69,35 +69,53 @@ class Category extends CategoriesAppModel {
  *
  * @var array
  */
-	public $validate = array();
+	public $validate = array(
+		'name' => array(
+			'required' => array(
+				'rule' => array('notEmpty'),
+				'required' => true,
+				'allowEmpty' => false,
+				'message' => 'Please enter a category name'
+			)
+		)
+	);
 
 /**
  * Constructor
  *
- * @return void
+ * @param bool|string $id ID
+ * @param string $table Table
+ * @param string $ds Datasource
  */
 	public function __construct($id = false, $table = null, $ds = null) {
+		$this->_associateUserModel();
+		parent::__construct($id, $table, $ds);
+		$this->_setupBehaviors();
+	}
+
+/**
+ * Associates the configured user model with the category model
+ *
+ * @return void
+ */
+	protected function _associateUserModel() {
 		$userClass = Configure::read('App.UserClass');
 		if (empty($userClass)) {
 			$userClass = 'User';
 		}
+
 		$this->belongsTo['User'] = array(
 			'className' => $userClass,
-			'foreignKey' => 'user_id');
-		$this->actsAs['Utils.Sluggable'] = array_merge(array(
-			'label' => 'name'
-		), (array) Configure::read('Category.sluggable'));
-		parent::__construct($id, $table, $ds);
-		$this->validate = array(
-			'name' => array(
-				'required' => array('rule' => array('notEmpty'), 'required' => true, 'allowEmpty' => false, 'message' => __d('categories', 'Please enter a category name'))));
+			'foreignKey' => 'user_id'
+		);
 	}
 
 /**
  * Adds a new record to the database
  *
  * @param string $userId, user id
- * @param array post data, should be Contoller->data
+ * @param array $data Post data, should be Contoller->data
+ * @throws \NotFoundException
  * @return array
  */
 	public function add($userId = null, $data = null) {
@@ -109,7 +127,7 @@ class Category extends CategoriesAppModel {
 				$this->data = array_merge($data, $result);
 				return true;
 			} else {
-				throw new OutOfBoundsException(__d('categories', 'Could not save the category, please check your inputs.'));
+				throw new NotFoundException(__d('categories', 'Could not save the category, please check your inputs.'));
 			}
 			return $result;
 		}
@@ -118,11 +136,11 @@ class Category extends CategoriesAppModel {
 /**
  * Edits an existing Category.
  *
- * @param string $id, category id 
+ * @param string $id, category id
  * @param string $userId, user id
  * @param array $data, controller post data usually $this->data
  * @return mixed True on successfully save else post data as array
- * @throws OutOfBoundsException If the element does not exists
+ * @throws NotFoundException If the element does not exists
  */
 	public function edit($id = null, $userId = null, $data = null) {
 		$conditions = array("{$this->alias}.{$this->primaryKey}" => $id);
@@ -131,10 +149,11 @@ class Category extends CategoriesAppModel {
 		}
 		$category = $this->find('first', array(
 			'contain' => array('User', 'ParentCategory'),
-			'conditions' => $conditions));
+			'conditions' => $conditions
+		));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
+			throw new NotFoundException(__d('categories', 'Invalid Category'));
 		}
 		$this->set($category);
 
@@ -157,18 +176,21 @@ class Category extends CategoriesAppModel {
  *
  * @param string $slug, category slug.
  * @return array
- * @throws OutOfBoundsException If the element does not exists
+ * @throws NotFoundException If the element does not exists
  */
 	public function view($slug = null) {
 		$category = $this->find('first', array(
 			'contain' => array('User', 'ParentCategory'),
 			'conditions' => array(
 				'or' => array(
-				$this->alias . '.id' => $slug,
-				$this->alias . '.slug' => $slug))));
+					$this->alias . '.id' => $slug,
+					$this->alias . '.slug' => $slug
+				)
+			)
+		));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
+			throw new NotFoundException(__d('categories', 'Invalid Category'));
 		}
 
 		return $category;
@@ -177,11 +199,12 @@ class Category extends CategoriesAppModel {
 /**
  * Validates the deletion
  *
- * @param string $id, category id 
+ * @param string $id, category id
  * @param string $userId, user id
  * @param array $data, controller post data usually $this->data
+ * @throws NotFoundException If the element does not exists
+ * @throws Exception
  * @return boolean True on success
- * @throws OutOfBoundsException If the element does not exists
  */
 	public function validateAndDelete($id = null, $userId = null, $data = array()) {
 		$category = $this->find('first', array(
@@ -191,7 +214,7 @@ class Category extends CategoriesAppModel {
 				)));
 
 		if (empty($category)) {
-			throw new OutOfBoundsException(__d('categories', 'Invalid Category'));
+			throw new NotFoundException(__d('categories', 'Invalid Category'));
 		}
 
 		$this->data['category'] = $category;
@@ -200,7 +223,8 @@ class Category extends CategoriesAppModel {
 			$tmp = $this->validate;
 			$this->validate = array(
 				'id' => array('rule' => 'notEmpty'),
-				'confirm' => array('rule' => '[1]'));
+				'confirm' => array('rule' => '[1]')
+			);
 
 			$this->set($data);
 			if ($this->validates()) {
