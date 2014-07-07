@@ -126,7 +126,8 @@ class CategoriesController extends CategoriesAppController {
 
 /**
  * Admin add for category.
- * 
+ *
+ * @param string $categoryId Category UUID.
  */
 	public function admin_add($categoryId = null) {
 		try {
