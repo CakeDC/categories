@@ -43,7 +43,8 @@ class CategoriesController extends CategoriesAppController {
  * @var array
  */
 	public $components = array(
-		'Auth'
+		'Auth',
+		'Paginator'
 	);
 
 /**
@@ -68,17 +69,17 @@ class CategoriesController extends CategoriesAppController {
 
 /**
  * Index for category.
- * 
+ *
  */
 	public function index() {
 		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
+		$this->set('categories', $this->Paginator->paginate());
 	}
 
 /**
  * View for category.
  *
- * @param string $slug, category slug 
+ * @param string $slug, category slug
  */
 	public function view($slug = null) {
 		try {
@@ -92,16 +93,18 @@ class CategoriesController extends CategoriesAppController {
 
 /**
  * Admin index for category.
- * 
+ *
+ * @return void
  */
 	public function admin_index() {
 		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
+		$this->set('categories', $this->Paginator->paginate());
 	}
 
 /**
  * Admin index
  *
+ * @return void
  */
 	public function admin_tree() {
 		$this->Category->recursive = 0;
@@ -112,7 +115,7 @@ class CategoriesController extends CategoriesAppController {
 /**
  * Admin view for category.
  *
- * @param string $slug, category slug 
+ * @param string $slug, category slug
  */
 	public function admin_view($slug = null) {
 		try {
@@ -134,18 +137,19 @@ class CategoriesController extends CategoriesAppController {
 			$result = $this->Category->add($this->Auth->user('id'), $this->request->data);
 			if ($result === true) {
 				$this->Session->setFlash(__d('categories', 'The category has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'tree'));
 			}
 		} catch (OutOfBoundsException $e) {
 			$this->Session->setFlash($e->getMessage());
 		} catch (Exception $e) {
 			$this->Session->setFlash($e->getMessage());
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'tree'));
 		}
-		if (!empty($this->request->data) && !empty($categoryId)) {
+
+		if (empty($this->request->data) && !empty($categoryId)) {
 			$this->request->data[$this->Category->alias]['category_id'] = $categoryId;
 		}
-		$categories = $this->Category->find('list');
+		$categories = $this->Category->generateTreeList(null, null, null, "- ");
 		$users = $this->Category->User->find('list');
 		$this->set(compact('categories', 'users'));
 	}
@@ -153,7 +157,7 @@ class CategoriesController extends CategoriesAppController {
 /**
  * Admin edit for category.
  *
- * @param string $id, category id 
+ * @param string $id, category id
  */
 	public function admin_edit($id = null) {
 		try {
@@ -168,7 +172,7 @@ class CategoriesController extends CategoriesAppController {
 			$this->Session->setFlash($e->getMessage());
 			$this->redirect('/');
 		}
-		$categories = $this->Category->find('list');
+		$categories = $this->Category->generateTreeList(null, null, null, "- ");
 		$users = $this->Category->User->find('list');
 		$this->set(compact('categories', 'users'));
  	}
@@ -176,7 +180,7 @@ class CategoriesController extends CategoriesAppController {
 /**
  * Admin delete for category.
  *
- * @param string $id, category id 
+ * @param string $id, category id
  */
 	public function admin_delete($id = null) {
 		try {

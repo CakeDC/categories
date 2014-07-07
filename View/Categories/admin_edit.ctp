@@ -14,7 +14,7 @@
  		<legend><?php echo __d('categories', 'Edit Category');?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('category_id', array('empty' => true));
+		echo $this->Form->input('category_id', array('empty' => true, 'label'=>'Parent Category'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 	?>
