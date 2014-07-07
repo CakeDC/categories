@@ -18,6 +18,6 @@ App.pagesAdminIndex = {
 				window.location = url;
 		    }
 		);
-		//$('#placeholder').hide().load('/admin/categories/categories/add', function() { $(this).fadeIn(); });
+		$('#placeholder').hide().load('/admin/categories/categories/add', function() { $(this).fadeIn(); });
 	}
 };

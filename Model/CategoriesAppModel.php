@@ -19,4 +19,21 @@ App::uses('AppModel', 'Model');
  */
 class CategoriesAppModel extends AppModel {
 
+/**
+ * Setup available plugins
+ *
+ * This checks for the existence of certain plugins, and if available, uses them.
+ *
+ * @return void
+ * @link https://github.com/CakeDC/utils
+ */
+	protected function _setupBehaviors() {
+		if (CakePlugin::loaded('Utils') && class_exists('SluggableBehavior') && !$this->Behaviors->loaded('Sluggable')) {
+			debug('TEST');
+			$this->Behaviors->load('Utils.Sluggable', array_merge(array(
+				'label' => 'name'
+				), (array)Configure::read('Category.sluggable')
+			));
+		}
+	}
 }
