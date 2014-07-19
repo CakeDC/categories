@@ -1,9 +1,9 @@
 {
 	"name": "cakedc/categories",
-	"type": "cakephp-plugin",
 	"description": "Categories Plugin for CakePHP.",
-	"homepage": "http://github.com/CakeDC/categories",
+	"type": "cakephp-plugin",
 	"keywords": ["cakephp", "categories", "plugin"],
+	"homepage": "http://github.com/CakeDC/categories",
 	"license": "MIT",
 	"authors": [
 		{
@@ -12,8 +12,16 @@
 			"homepage": "http://cakedc.com"
 		}
 	],
+	"support": {
+		"email": "team@cakedc.com",
+		"issues": "https://github.com/CakeDC/categories/issues",
+		"forum": "http://stackoverflow.com/tags/cakedc",
+		"wiki": "https://github.com/CakeDC/categories/blob/master/Docs/Home.md",
+		"irc": "irc://irc.freenode.org/cakephp",
+		"source": "https://github.com/CakeDC/categories"
+	},
 	"require": {
-		"php": ">=5.3.0",
+		"php": ">=5.2.8",
 		"composer/installers": "*",
 		"cakedc/utils": "*"
 	},
