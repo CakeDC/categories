@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Release 1.2.2
+-------------
+
+https://github.com/CakeDC/categories/tree/1.2.2
+
+ * [ed659c8](https://github.com/cakedc/categories/commit/ed659c8) Updating composer.json, removing a debug, fixing the link in CHANGELOG.md
+
 Release 1.2.1
 -------------
 
