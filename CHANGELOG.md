@@ -4,7 +4,7 @@ Changelog
 Release 1.2.1
 -------------
 
-https://github.com/CakeDC/migrations/tree/1.2.1
+https://github.com/CakeDC/categories/tree/1.2.1
 
  * [8a0cf97](https://github.com/CakeDC/categories/commit/8a0cf97) Adding CakeDC Utils to the required section of composer.json because it won't work without it right now.
  * [e7cec53](https://github.com/CakeDC/categories/commit/e7cec53) CS fixes

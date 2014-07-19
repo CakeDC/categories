@@ -29,7 +29,6 @@ class CategoriesAppModel extends AppModel {
  */
 	protected function _setupBehaviors() {
 		if (CakePlugin::loaded('Utils') && class_exists('SluggableBehavior') && !$this->Behaviors->loaded('Sluggable')) {
-			debug('TEST');
 			$this->Behaviors->load('Utils.Sluggable', array_merge(array(
 				'label' => 'name'
 				), (array)Configure::read('Category.sluggable')
