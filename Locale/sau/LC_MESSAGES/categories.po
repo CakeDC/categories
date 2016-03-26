@@ -1,0 +1,163 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CakePHP Categories Plugin\n"
+"POT-Creation-Date: 2016-01-13 12:29+0200\n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Essam Ay <ayariissam@gmail.com>"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n"
+"%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Language: ar_SA\n"
+
+# LANGUAGE translation of the CakePHP Categories plugin
+#
+# Copyright 2010, Cake Development Corporation (http://cakedc.com)
+#
+# Licensed under The MIT License
+# Redistributions of files must retain the above copyright notice.
+#
+# @copyright Copyright 2010, Cake Development Corporation (http://cakedc.com)
+# @license MIT License (http://www.opensource.org/licenses/mit-license.php)
+#
+#: /controllers/categories_controller.php:113
+msgid "The category has been saved"
+msgstr "لقد تم حفظ التصنيف"
+
+#: /controllers/categories_controller.php:139
+msgid "Category saved"
+msgstr "تم حفظ التصنيف"
+
+#: /controllers/categories_controller.php:164
+msgid "Category deleted"
+msgstr "تم حذف التصنيف"
+
+#: /models/categorized.php:53
+msgid "Foreign key can not be empty"
+msgstr "المفتاح الخارجي لا يمكن أن يكون فارغاً"
+
+#: /models/categorized.php:55
+msgid "Category id can not be empty"
+msgstr "لا يمكن أن يكون معرف التصنيف فارغا"
+
+#: /models/categorized.php:57
+msgid "Model field can not be empty"
+msgstr "لا يمكن أن يكون حقل الموديل فارغا"
+
+#: /models/category.php:84
+msgid "Please enter a category name"
+msgstr "يرجى إدخال اسم تصنيف"
+
+#: /models/category.php:103
+msgid "Could not save the category, please check your inputs."
+msgstr "لا يمكن حفظ التصنيف، الرجاء التحقق من المدخلات الخاصة بك."
+
+#: /models/category.php:128;162;185
+msgid "Invalid Category"
+msgstr "تصنيف غير صالحة"
+
+#: /models/category.php:203
+msgid "You need to confirm to delete this Category"
+msgstr "أنت بحاجة للتأكد من حذف هذا التصنيف"
+
+#: /views/categories/admin_add.ctp:14
+msgid "Add Category"
+msgstr "إضافة تصنيف"
+
+#: /views/categories/admin_add.ctp:21 /views/categories/admin_edit.ctp:22
+msgid "Submit"
+msgstr "إرسال"
+
+#: /views/categories/admin_edit.ctp:14 /views/categories/admin_view.ctp:43
+msgid "Edit Category"
+msgstr "تعديل التصنيف"
+
+#: /views/categories/admin_index.ctp:12 /views/categories/admin_tree.ctp:12
+#: /views/categories/index.ctp:12
+msgid "Categories"
+msgstr "التصنيفات"
+
+#: /views/categories/admin_index.ctp:16 /views/categories/index.ctp:16
+msgid ""
+"Page %page% of %pages%, showing %current% records out of %count% total, "
+"starting on record %start%, ending on %end%"
+msgstr ""
+
+#: /views/categories/admin_index.ctp:26 /views/categories/index.ctp:26
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: /views/categories/admin_index.ctp:53 /views/categories/admin_tree.ctp:50
+#: /views/categories/index.ctp:53
+msgid "View"
+msgstr "المظهر"
+
+#: /views/categories/admin_index.ctp:54 /views/categories/admin_tree.ctp:52
+#: /views/categories/index.ctp:54
+msgid "Edit"
+msgstr "تعديل"
+
+#: /views/categories/admin_index.ctp:55 /views/categories/admin_tree.ctp:53
+#: /views/categories/index.ctp:55
+msgid "Delete"
+msgstr "حذف"
+
+#: /views/categories/admin_index.ctp:55 /views/categories/admin_view.ctp:44
+#: /views/categories/index.ctp:55
+msgid "Are you sure you want to delete # %s?"
+msgstr "هل أنت متأكد من حذف #%s؟"
+
+#: /views/categories/admin_tree.ctp:35
+msgid "No categories were added yet. :add-a-new-one now!"
+msgstr "لم يتم إضاقة حتى تصنيف. أضف تصنيف جديد الآن!"
+
+#: /views/categories/admin_tree.ctp:36
+msgid "Add a new one"
+msgstr "أضف جديد"
+
+#: /views/categories/admin_tree.ctp:43
+msgid "Add category"
+msgstr "أضف تصنيف"
+
+#: /views/categories/admin_tree.ctp:51
+msgid "Add a child"
+msgstr "أضف تصنيف فرعي"
+
+#: /views/categories/admin_view.ctp:12 /views/categories/view.ctp:12
+msgid "Category"
+msgstr "تصنيف"
+
+#: /views/categories/admin_view.ctp:14 /views/categories/view.ctp:14
+msgid "Parent Category"
+msgstr "تصنيف أب"
+
+#: /views/categories/admin_view.ctp:19 /views/categories/view.ctp:19
+msgid "User"
+msgstr "مستخدم"
+
+#: /views/categories/admin_view.ctp:24 /views/categories/view.ctp:24
+msgid "Name"
+msgstr "اسم"
+
+#: /views/categories/admin_view.ctp:29 /views/categories/view.ctp:29
+msgid "Description"
+msgstr "وصف"
+
+#: /views/categories/admin_view.ctp:34 /views/categories/view.ctp:34
+msgid "Created"
+msgstr "تم"
+
+#: /views/categories/admin_view.ctp:44
+msgid "Delete Category"
+msgstr "حذف التصنيف"
+
+#: /views/categories/admin_view.ctp:45 /views/categories/view.ctp:43
+msgid "List Categories"
+msgstr "قائمة التصانيف"
+
+#: /views/categories/admin_view.ctp:46
+msgid "New Category"
+msgstr "تصنيف جديد"
